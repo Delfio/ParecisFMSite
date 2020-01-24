@@ -5,6 +5,8 @@ export const Container = styled.nav`
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   background-image: linear-gradient(to bottom, #c0242b, #e3353d);
+
+  box-shadow: 0 25px rgba(0,0,0);
 `;
 
 export const Button = styled.button`

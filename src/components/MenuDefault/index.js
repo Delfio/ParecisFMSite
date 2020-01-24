@@ -27,13 +27,13 @@ export default function MenuDefault() {
         <div className="container">
           <a href="#" className="brand-logo">
             <div className="col s12">
-              <img className="responsive-img" style={{width: '100%', height: '100%', maxWidth: '80px', maxHeight: '150px', marginTop: 5}} src={Logo} alt=""/>
+              <img className="responsive-img" style={{width: '100%', height: '100%', maxWidth: '80px', maxHeight: '150px', marginTop: 6}} src={Logo} alt=""/>
             </div>
           </a>
         </div>
         <ul style={{marginRight: '4.5em'}} id="nav-mobile" className="right hide-on-med-and-down">
           <li style={{marginRight: '1.5rem'}}>
-            <Button className="btn waves-effect waves-light" onClick={playAudio}>
+            <Button title={play? 'Pausar' : 'Play'} className="btn waves-effect waves-light" onClick={playAudio}>
               AO VIVO
               <i className="material-icons right">{play? 'pause' : 'play_arrow'}</i>
             </Button>
