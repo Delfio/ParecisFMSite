@@ -35,7 +35,7 @@ export default function MenuDefault() {
           <li style={{marginRight: '1.5rem'}}>
             <Button className="btn waves-effect waves-light" onClick={playAudio}>
               AO VIVO
-              <i className="material-icons right">send</i>
+              <i className="material-icons right">{play? 'pause' : 'play_arrow'}</i>
             </Button>
           </li>
           <li style={{marginRight: '0.5em'}}><a href="sass.html">PEÇA SUA MÚSICA</a></li>
