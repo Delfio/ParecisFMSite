@@ -8,7 +8,11 @@ import GlobalStyle from './styles/global'
 
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.carousel');
-  M.Carousel.init(elems, {});
+  M.Carousel.init(elems, {
+    numVisible: 3,
+    indicators: true,
+    dist: 50,
+  });
 });
 
 export default function App() {
