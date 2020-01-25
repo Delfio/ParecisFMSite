@@ -3,6 +3,12 @@ import React from 'react';
 import { SectionIMG, Ul, OuvirButton } from './styles';
 
 export default function AsMaisPedidas() {
+
+
+  function handleMussic() {
+    console.log('Quer Escutar')
+  }
+
   return (
     <div className="row">
       <div className="container">
@@ -18,6 +24,7 @@ export default function AsMaisPedidas() {
                </div>
               </SectionIMG>
               <OuvirButton
+                onClick={handleMussic}
                 className="btn waves-effect waves-light red darken-3"
                 type="submit"
                 name="action"
@@ -34,6 +41,7 @@ export default function AsMaisPedidas() {
                </div>
               </SectionIMG>
               <OuvirButton
+                onClick={handleMussic}
                 className="btn waves-effect waves-light red darken-3"
                 type="submit"
                 name="action"
@@ -50,6 +58,7 @@ export default function AsMaisPedidas() {
                </div>
               </SectionIMG>
               <OuvirButton
+                onClick={handleMussic}
                 className="btn waves-effect waves-light red darken-3"
                 type="submit"
                 name="action"

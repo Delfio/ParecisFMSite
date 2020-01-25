@@ -84,20 +84,6 @@ export const Ul = styled.ul`
     &:hover{
       transform: scale(1.02);
     }
-
-    a{
-      text-align: center;
-      margin-top: -5%;
-      width: 70%;
-      left: 15%;
-      border-radius: 7px;
-      height: 3em;
-      box-shadow: 0 2px 2px 0 rgba(80,11,11, 0.2);
-      &:hover{
-        background-color: #9e1e24  !important;
-        box-shadow: 0 2px 2px 0 rgba(80,11,11, 0.9);
-      }
-    }
   }
   button{
     text-align: center;
@@ -109,4 +95,9 @@ export const Ul = styled.ul`
   }
 `;
 
-export const OuvirButton = styled.button``;
+export const OuvirButton = styled.button`
+  &:hover{
+    background-color: #9e1e24  !important;
+    box-shadow: 0 2px 2px 0 rgba(80,11,11, 0.9);
+  }
+`;
