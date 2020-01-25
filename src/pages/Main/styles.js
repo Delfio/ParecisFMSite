@@ -91,15 +91,22 @@ export const Ul = styled.ul`
       width: 70%;
       left: 15%;
       border-radius: 7px;
+      height: 3em;
       box-shadow: 0 2px 2px 0 rgba(80,11,11, 0.2);
-      &::hover{
+      &:hover{
         background-color: #9e1e24  !important;
         box-shadow: 0 2px 2px 0 rgba(80,11,11, 0.9);
       }
-      &::before{
-        content: '';
-        background-color: #eee !important;
-      }
     }
   }
+  button{
+    text-align: center;
+    margin-top: -5%;
+    width: 70%;
+    height: 3em;
+    border-radius: 7px;
+    box-shadow: 0 2px 2px 0 rgba(80,11,11, 0.2);
+  }
 `;
+
+export const OuvirButton = styled.button``;
