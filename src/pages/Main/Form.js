@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import logoSuaMusica from '../../assets/pecaSuaMusica.svg'
 
@@ -8,12 +8,20 @@ import { Form, Input as RocketInput } from '@rocketseat/unform';
 
 export default function PecaSuaMusica() {
 
+  const[tipo, setTipo] = useState();
+
   async function handleSubmit(data){
-    console.log(data)
+    console.log({
+      artista: data.artista,
+      musica: data.musica,
+      nome: data.nome,
+      idade: data.idade,
+      sexo: tipo,
+    })
   }
 
   return (
-    <div className="col s12 grey lighten-5">
+    <div className="col s12 grey lighten-3">
       <div className="row">
         <Container style={{display: 'flex', alignItems: 'center'}} className="container">
           <div className="col l3">
@@ -33,13 +41,44 @@ export default function PecaSuaMusica() {
                   <label htmlFor="musica">Musica</label>
                   <Input id="musica" placeholder="Meteoro da Paixão" type="text" name="musica"/>
                 </div>
-                <div className="col s10">
+                <div style={{marginTop: 5}} className="col s10">
                   <label htmlFor="seunome">Seu Nome</label>
                   <Input id="seunome" placeholder="João Henrrique" type="text" name="nome"/>
                 </div>
-                <div className="col s2">
+                <div style={{marginTop: 5}} className="col s2">
                   <label htmlFor="idade">Sua Idade</label>
                   <Input id="idade" placeholder="22" type="number" name="idade"/>
+                </div>
+                <div style={{marginTop:5}} className="col s12">
+                  <h6 className="grey-text" style={{fontWeight: 900}}>SEXO</h6>
+                  <div 
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}
+                    className="col s4">
+                    <label>
+                    <RocketInput
+                      value="2"
+                      name="sexo" 
+                      id="destaque" 
+                      type="radio" 
+                      className="validate" 
+                      checked={tipo === 'feminino' ? true : false} 
+                      onChange={e => setTipo('feminino')}
+                      />
+                      <span style={{fontWeight: 900}} className="grey-text">Feminino</span>
+                    </label>
+                    <label>
+                    <RocketInput
+                      value="1"
+                      name="sexo" 
+                      id="destaque" 
+                      type="radio" 
+                      className="validate" 
+                      checked={tipo === 'masculino' ? true : false} 
+                      onChange={e => setTipo('masculino')}
+                      />
+                      <span style={{fontWeight: 900}} className="grey-text">Masculino</span>
+                    </label>
+                  </div>
                 </div>
                 <div className="col s12">
                   <Button className="btn waves-effect red-light red darken-4" type="submit" name="action">Enviar
