@@ -9,6 +9,11 @@ export default createGlobalStyle`
     background-color: #f3f3f3;
   }
 
+  body, #root{
+    width: 100%;
+    max-width: 100%;
+  }
+
   button{
     cursor: pointer;
   }
