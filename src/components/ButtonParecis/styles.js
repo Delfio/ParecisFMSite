@@ -5,8 +5,8 @@ export const Container = styled.div`
 	width:120px;
 	height:120px;
 	bottom:100px;
-	right: -2px;
+	right: 0px;
 	border-radius:50px;
 	text-align:center;
-	z-index: 1;
+	z-index: 5;
 `;

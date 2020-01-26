@@ -11,6 +11,22 @@ export const Container = styled.div`
   }
 `;
 
+export const DivBanner = styled.div`
+  @media (max-width: 760px) {
+    background-image: url(${props=> props.bg});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 170px;
+    div {
+      margin-top: 25px;
+      height: 80%;
+      width: 100%;
+    }
+  }
+`;
+
 export const Img = styled.img`
   width: 100%;
   height: 100%;
@@ -19,6 +35,11 @@ export const Img = styled.img`
 `;
 
 export const DivForm = styled.div`
+
+  @media (min-width: 1690px) {
+    margin-top: 5%;
+  }
+
   label{
     font-size: 1em;
   }

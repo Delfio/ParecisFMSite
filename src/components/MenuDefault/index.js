@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 
+import Topo from '../../assets/Topo.png'
+
 import Logo from '../../assets/logoParecis.svg'
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 import { Container, Button } from './styles';
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  M.Sidenav.init(elems, {});
+});
 
 export default function MenuDefault() {
 
@@ -21,6 +29,7 @@ export default function MenuDefault() {
   }
 
   return (
+    <>
     <Container>
       <div className="nav-wrapper">
         <audio id="player" src="http://live.hunter.fm/live"></audio>
@@ -44,7 +53,35 @@ export default function MenuDefault() {
           <li style={{marginRight: '0.5em'}}><a href="collapsible.html">PROGRAMAÇÃO</a></li>
           <li><a href="collapsible.html">CONTATOS</a></li>
         </ul>
+        <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
       </div>
     </Container>
+    <ul id="slide-out" className="sidenav">
+      <li>
+        <div className="user-view">
+          <div className="background red darken-4">
+            
+          </div>
+          <a href="#user"><img style={{maxHeight: 150}} src={Logo} /></a>
+          <a href="#name"><span className="white-text name">ParecisFM</span></a>
+          <a href="#email"><span className="white-text email">parecisfm@gmail.com</span></a>
+        </div>
+      </li>
+      <li>
+        <a href="#!"><i className="material-icons">cloud</i>First Link With Icon</a>
+      </li>
+      <li>
+        <a href="#!">Second Link</a>
+      </li>
+      <li><div className="divider"></div>
+    </li>
+      <li>
+        <a className="subheader">Subheader</a>
+      </li>
+      <li>
+        <a className="waves-effect" href="#!">Third Link With Waves</a>
+      </li>
+    </ul>
+    </>
   );
 }
