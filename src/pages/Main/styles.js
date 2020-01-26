@@ -101,3 +101,33 @@ export const OuvirButton = styled.button`
     box-shadow: 0 2px 2px 0 rgba(80,11,11, 0.9);
   }
 `;
+
+export const Programacao = styled.div`
+
+  background-color: #ffeb3b;
+
+`
+
+export const UlProgramacao = styled.ul`
+  border-right: solid 3px #000;
+  margin-left: 2% !important;
+  display: table;
+  flex-direction: column;
+  min-height: 400px !important;
+  div{
+
+  }
+  li {
+    margin-bottom: 18px;
+
+    h6 {
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+    
+    p{
+      margin: 0
+    }
+  }
+
+`;

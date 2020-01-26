@@ -5,6 +5,8 @@ import Form from './Form';
 import MaisPedidas from './AsMaisPedidas';
 import Promocoes from './Promocoes';
 
+import Programacao from './Programacao';
+
 // import { Container } from './styles';
 
 export default function Main() {
@@ -14,6 +16,7 @@ export default function Main() {
     <Form/>
     <MaisPedidas />
     <Promocoes />
+    <Programacao />
     </>
   );
 }

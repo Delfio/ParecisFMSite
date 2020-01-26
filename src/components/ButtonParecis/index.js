@@ -7,7 +7,7 @@ export default function ButtonParecis() {
   return (
     <Container className="container">
       <div className="col s12">
-        <img src={Microfone} alt=""/>
+        <img src={Microfone} alt="Microfone Parecis"/>
       </div>
     </Container>
   );
