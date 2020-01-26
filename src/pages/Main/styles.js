@@ -80,7 +80,9 @@ export const SectionIMG = styled.section`
 export const Ul = styled.ul`
   li {
     transition: all .2s ease-in-out;
-    
+    @media (max-width: 900px) {
+      margin-bottom: 15px;
+    }
     &:hover{
       transform: scale(1.02);
     }
@@ -114,6 +116,11 @@ export const UlProgramacao = styled.ul`
   display: table;
   flex-direction: column;
   min-height: 400px !important;
+
+  @media (max-width: 900px) {
+    border-right: none;
+    border-bottom: solid 3px rgba(0,0,0,0.2);
+  }
   div{
 
   }
