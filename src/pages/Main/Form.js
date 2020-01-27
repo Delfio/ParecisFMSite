@@ -22,7 +22,7 @@ export default function PecaSuaMusica() {
 
   return (
     <div className="col s12 grey lighten-3">
-      <div className="row">
+      <div id="suamusica" className="row">
         <Container style={{display: 'flex', alignItems: 'center'}} className="container">
           <div className="col l3 hide-on-small-only">
             <div className="col s12">

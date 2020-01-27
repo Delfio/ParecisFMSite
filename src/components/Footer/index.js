@@ -7,7 +7,7 @@ import Bg from '../../assets/imgRodape-parecis.png'
 export default function Footer() {
   return (
     <div className="row">
-      <Container bg={Bg} className="page-footer">
+      <Container id="contatos" bg={Bg} className="page-footer">
         <div className="container">
           <div className="row">
             <div className="col l6 s12">

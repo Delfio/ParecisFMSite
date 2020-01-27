@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Topo from '../../assets/Topo.png'
+import { Link } from 'react-router-dom';
 
 import Logo from '../../assets/logoParecis.svg'
 import M from 'materialize-css/dist/js/materialize.min.js';
@@ -34,7 +34,7 @@ export default function MenuDefault() {
       <div className="nav-wrapper">
         <audio id="player" src="http://live.hunter.fm/live"></audio>
         <div className="container">
-          <a href="#" className="brand-logo">
+          <a href="/" className="brand-logo">
             <div className="col s12">
               <img className="responsive-img" style={{width: '100%', height: '100%', maxWidth: '80px', maxHeight: '150px', marginTop: 6}} src={Logo} alt=""/>
             </div>
@@ -47,11 +47,11 @@ export default function MenuDefault() {
               <i className="material-icons right">{play? 'pause' : 'play_arrow'}</i>
             </Button>
           </li>
-          <li style={{marginRight: '0.5em'}}><a href="sass.html">PEÇA SUA MÚSICA</a></li>
-          <li style={{marginRight: '0.5em'}}><a href="badges.html">AS MAIS PEDIDAS</a></li>
-          <li style={{marginRight: '0.5em'}}><a href="collapsible.html">PROMOÇÕES</a></li>
-          <li style={{marginRight: '0.5em'}}><a href="collapsible.html">PROGRAMAÇÃO</a></li>
-          <li><a href="collapsible.html">CONTATOS</a></li>
+          <li style={{marginRight: '0.5em'}}><a href="#suamusica">PEÇA SUA MÚSICA</a></li>
+          <li style={{marginRight: '0.5em'}}><a href="#maispedidas">AS MAIS PEDIDAS</a></li>
+          <li style={{marginRight: '0.5em'}}><a href="#promocoes">PROMOÇÕES</a></li>
+          <li style={{marginRight: '0.5em'}}><a href="#programacao">PROGRAMAÇÃO</a></li>
+          <li><a href="#contatos">CONTATOS</a></li>
         </ul>
         <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
       </div>

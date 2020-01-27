@@ -11,7 +11,7 @@ export default function AsMaisPedidas() {
 
   return (
     <div className="row">
-      <div className="container">
+      <div id="maispedidas" className="container">
         <h4 style={{fontWeight: 900}} className="center-align grey-text">AS MAIS PEDIDAS - TOP 3</h4>
         <Ul className="col s12">
           <li className="col l4 s12 center-align">

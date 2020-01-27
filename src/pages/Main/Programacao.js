@@ -5,7 +5,7 @@ import { Programacao, UlProgramacao } from './styles';
 export default function ProgramacaoSemanal() {
   return (
     <div style={{marginBottom: 0}} className="row">
-      <Programacao className="col s12 center">
+      <Programacao id="programacao" className="col s12 center">
         <div className="container center">
           <h5 style={{fontWeight: 700, marginTop: 35}}>PROGRAMAÇÃO</h5>
         </div>

@@ -30,7 +30,7 @@ export default function Inicial(props) {
                 <DivInput className="col s12 l12">
                   <div className="input-field col s12 m6 l6 center-align">
                     <select defaultValue="0" onChange={handlePage} className="icons center">
-                      <option value="default" defaultValue selected>Selecione a sua opção</option>
+                      <option value="default" defaultValue selected>Selecione sua cidade</option>
                       <option value="1" data-icon={Logo}>Porto Velho</option>
                       <option value="2" data-icon={Logo}>Ariquemes</option>
                       <option value="3" data-icon={Logo}>Rolim de Moura</option>

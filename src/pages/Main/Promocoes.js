@@ -5,7 +5,7 @@ import React from 'react';
 export default function Promocoes() {
   return (
     <div className="row grey lighten-5">
-      <div className="container">
+      <div id="promocoes" className="container">
         <h4 style={{fontWeight: 900, padding: 15}} className="center-align grey-text">Promoções</h4>
         
         <div style={{boxShadow: '0 2px 15px rgba(54, 13, 8, 0.2)', marginBottom: 25, background: 'rgba(230,230,230,0.1)'}} className="carousel">
