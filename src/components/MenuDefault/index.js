@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
 import Logo from '../../assets/logoParecis.svg'
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 import { Container, Button } from './styles';
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  M.Sidenav.init(elems, {});
-});
 
 export default function MenuDefault() {
+
+  useEffect(()=>{
+    var elems = document.querySelectorAll('.sidenav');
+    M.Sidenav.init(elems, {});
+  }, [])
 
   const [play, setPlay] = useState(false);
 

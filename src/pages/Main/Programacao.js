@@ -1,8 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 import { Programacao, UlProgramacao } from './styles';
 
+
 export default function ProgramacaoSemanal() {
+
+  useEffect(() => {
+    var elems = document.querySelectorAll('.carousel');
+    M.Carousel.init(elems, {
+      numVisible: 3,
+      indicators: true,
+      dist: 50,
+    });
+  }, [])
+
   return (
     <div style={{marginBottom: 0}} className="row">
       <Programacao id="programacao" className="col s12 center">

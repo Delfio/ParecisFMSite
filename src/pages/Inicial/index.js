@@ -1,21 +1,23 @@
-import React from 'react';
-import M from 'materialize-css/dist/js/materialize.min.js';
+import React, {useEffect} from 'react';
 import Logo from '../../assets/logoParecis.svg'
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 import { Container, Div, DivInput } from './styles';
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('select');
-  M.FormSelect.init(elems, {});
-});
 
 export default function Inicial(props) {
-  
 
-  function handlePage(event){
+  useEffect(() => {
+    var selecteds = document.querySelectorAll('select');
+    M.FormSelect.init(selecteds, {});
+  }, [])
+
+  async function handlePage(event){
+
     const {value} = event.target;
     return (
-      props.history.push(`/radio/${value}`)
+      
+      await props.history.push(`radio/${value}`)
     )
   }
 
