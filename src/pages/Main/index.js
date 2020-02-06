@@ -14,7 +14,6 @@ import ButtonParecis from '../../components/ButtonParecis';
 import Programacao from './Programacao';
 
 import api from '../../services/api';
-import {connect, disconnect} from '../../services/socket';
 
 // import { Container } from './styles';
 
@@ -30,10 +29,6 @@ export default function Main(props) {
   const[top3, setTop3] = useState([]);
   //todas as programações
   const[allProgramacao, setAllProgramacao] = useState([]);
-
-  function stupWebSocket() {
-    connect();
-  }
 
   useEffect(() => {
     async function loadDados() {
@@ -56,7 +51,6 @@ export default function Main(props) {
       }
     }
     loadDados();
-    stupWebSocket();
   }, []);
 
   return (

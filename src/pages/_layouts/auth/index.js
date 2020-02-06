@@ -17,7 +17,7 @@ export default function AuthLayout({children}) {
   }, [])
 
   return (
-    <Wrapper>
+    <Wrapper className="container">
       <Menu />
       {children}
     </Wrapper>
