@@ -8,7 +8,7 @@ export default createGlobalStyle`
 
   body, input, button {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f3f3f3;
+    /* background-color: #f3f3f3; */
   }
 
   body, #root{
