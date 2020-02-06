@@ -2,10 +2,10 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-export default function TentandoDashboard() {
+export default function login() {
   return (
     <div>
-      <h2>Dashboard</h2>
+      <h2>login</h2>
     </div>
   );
 }

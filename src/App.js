@@ -4,6 +4,8 @@ import Routes from './routes';
 import history from './services/history';
 import GlobalStyle from './styles/global'
 
+import './config/ReactotronConfig';
+
 import { ToastContainer } from 'react-toastify';
 
 export default function App() {

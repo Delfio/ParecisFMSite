@@ -8,9 +8,19 @@ import DefaultLayout from '../pages/_layouts/default';
 export default function RouteWrapper({
   component: Component,
   isPrivate = false,
-  initial = false,
+  login = false,
   ...rest
 }) {
+
+  const signed = false;
+
+  if(!signed && isPrivate){
+    return <Redirect to="/login" />
+  }
+
+  if(signed && login){
+    return <Redirect to="/painel" />
+  }
 
   const Layout = isPrivate? AuthLayout : DefaultLayout;
 
@@ -24,4 +34,16 @@ export default function RouteWrapper({
       )}
     />
   );
+}
+
+
+RouteWrapper.propTypes = {
+  isPrivate: PropTypes.bool,
+  login: PropTypes.bool,
+  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
+}
+
+RouteWrapper.defaultProps = {
+  isPrivate: false,
+  login: false,
 }
