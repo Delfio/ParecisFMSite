@@ -18,6 +18,8 @@ export default function routes() {
       <Route path="/painel" exact isPrivate component={Dashboard}/>
 
       <Route path="/login" login component={Login}/>
+
+      <Route path="/" component={() => <h1>404</h1>} />
     </Switch>
   );
 }

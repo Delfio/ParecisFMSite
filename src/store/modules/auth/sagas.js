@@ -20,7 +20,7 @@ export function* signIn({ payload }) {
   
     yield put(signInSuccess(token, user));
   
-    history.push('/painel');
+    yield history.push('/painel');
     toast.success('Bem vindo')
   } catch (err) {
     toast.error('Algo deu errado! Confira seus dados')
