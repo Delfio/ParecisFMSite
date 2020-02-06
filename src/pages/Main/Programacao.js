@@ -1,11 +1,20 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 import { Programacao, UlProgramacao } from './styles';
 
+import api from '../../services/api';
 
-export default function ProgramacaoSemanal() {
+export default function ProgramacaoSemanal({id: RadioID}) {
+
+  const [segunda, setSegunda] = useState([])
+  const [terca, setTerca] = useState([])
+  const [quarta, setQuarta] = useState([])
+  const [quinta, setQuinta] = useState([])
+  const [sexta, setSexta] = useState([])
+  const [sabado, setSabado] = useState([])
+  const [domingo, setDomingo] = useState([])
 
   useEffect(() => {
     var elems = document.querySelectorAll('.carousel');
@@ -14,7 +23,21 @@ export default function ProgramacaoSemanal() {
       indicators: true,
       dist: 50,
     });
-  }, [])
+
+  }, []);
+
+  useEffect(() => {
+    async function loadPromotion(){
+      const response = await api.get(`programacaos/${RadioID}`);
+
+      const {data} = response;
+
+      setDomingo(data.Domingo)
+      setSegunda(data.Segunda)
+    }
+    loadPromotion();
+    
+  }, [RadioID])
 
   return (
     <div style={{marginBottom: 0}} className="row">
@@ -22,6 +45,7 @@ export default function ProgramacaoSemanal() {
         <div className="container center">
           <h5 style={{fontWeight: 700, marginTop: 35}}>PROGRAMAÇÃO</h5>
         </div>
+        {console.log(segunda)}
         <div className="row">
           <div className="col s12 l6">
             <UlProgramacao className="col s12">

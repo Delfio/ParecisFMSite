@@ -159,3 +159,73 @@ export const UlProgramacao = styled.ul`
   }
 
 `;
+
+export const DivLocutor = styled.div`
+  flex: 1;
+  width: 450px;
+  height: 450px;
+  min-height: 100%;
+  background-image: url(${props => props.bg});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  display: block;
+  position: relative;
+
+  @media(min-width: 1680px) {
+    width: 500px;
+    height: 500px;
+    margin-top: 48px;
+  }
+  &::after{
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 25;
+    background: linear-gradient(to right, rgba(24,24,24,0) 50%, #181818 100%);
+  }
+`;
+
+export const DivInfosLocutor = styled.div`
+  width: 450px;
+  height: 450px;
+  display: block;
+  position: relative;
+
+  z-index: 5;
+  /* box-shadow: -3px 0px 15px rgba(0,0,0,0.8); */
+
+  @media(min-width: 1680px) {
+    margin-top: 45px;
+    width: 450px;
+    height: 450px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h3 {
+    font-weight: 200;
+  }
+
+  h4{
+    font-weight: 600;
+    color: #ff9b00
+  }
+
+  /* background-image: linear-gradient(to top right, rgba(0,0,0), rgba(0,0,0)); */
+
+`;
+
+export const DivInfos = styled.div`
+
+  border-bottom: solid 2px rgba(255,255,255, 0.1);
+
+`;

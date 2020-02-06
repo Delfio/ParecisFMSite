@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Container } from './styles';
-import Microfone from '../../assets/MicrofoneParecisFM.svg'
+import Microfone from '../../assets/MicrofonePARECISFM2.svg'
 
 export default function ButtonParecis() {
   return (

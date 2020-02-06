@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
+import * as Yup from 'yup';
 
 import logoSuaMusica from '../../assets/pecaSuaMusica.svg'
 
@@ -6,18 +8,38 @@ import { Container, Img, DivForm, Input, Button } from './styles';
 
 import { Form, Input as RocketInput } from '@rocketseat/unform';
 
-export default function PecaSuaMusica() {
+import { toast } from 'react-toastify';
+import api from '../../services/api'
 
-  const[tipo, setTipo] = useState();
+const schema = Yup.object().shape({
+  artista: Yup.string().required('Favor Insira um artista'),
+  musica: Yup.string().required('Favor insira a música desejada'),
+  nome: Yup.string().required('Insira seu nome'),
+  idade: Yup.string().required('Idade Obrigatória'),
+  genero: Yup.number(),
+  telefone: Yup.string().required('Insira seu telefone').min(9, 'Minimo de 9 números').max(13, 'Máximo de 13 Números')
+
+})
+
+export default function PecaSuaMusica({id}) {
+
+  const[tipo, setTipo] = useState('feminino');
 
   async function handleSubmit(data){
-    console.log({
-      artista: data.artista,
-      musica: data.musica,
-      nome: data.nome,
-      idade: data.idade,
-      sexo: tipo,
-    })
+    try {
+      await api.post(`/musica/${id}`, {
+        nome: data.nome,
+        idade: data.idade,
+        telefone: data.telefone,
+        musica: data.musica,
+        artista: data.artista,
+        genero: tipo,
+        data: new Date()
+      });
+      toast.success('Seu pedido foi enviado com sucesso!')
+    } catch (err) {
+      toast.error('Ocorreu um erro')
+    }
   }
 
   return (
@@ -31,7 +53,7 @@ export default function PecaSuaMusica() {
           </div>
           <DivForm className="col l9 s12">
             <h4 className="red-text">Peça sua Música</h4>
-            <Form onSubmit={handleSubmit}>
+            <Form style={{color: 'red'}} schema={schema} onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col s6">
                   <label htmlFor="artista">Artista</label>
@@ -49,15 +71,21 @@ export default function PecaSuaMusica() {
                   <label htmlFor="idade">Sua Idade</label>
                   <Input id="idade" placeholder="22" type="number" name="idade"/>
                 </div>
-                <div style={{marginTop:5}} className="col l12 s9">
-                  <h6 className="grey-text" style={{fontWeight: 900}}>SEXO</h6>
+
+                <div className="col l6 m10 s9">
+                  <label htmlFor="telefone">Seu Telefone</label>
+                  <Input id="telefone" placeholder="69 91234-5678" type="number" name="telefone"/>
+                </div>
+
+                <div style={{marginTop:5}} className="col l6 s9">
+                  <h6 className="grey-text" style={{fontWeight: 900}}>GÊNERO</h6>
                   <div 
                     style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}
                     className="col s4">
                     <label>
                     <RocketInput
                       value="2"
-                      name="sexo" 
+                      name="sexo1" 
                       id="destaque" 
                       type="radio" 
                       className="validate" 
@@ -69,7 +97,7 @@ export default function PecaSuaMusica() {
                     <label>
                     <RocketInput
                       value="1"
-                      name="sexo" 
+                      name="sexo2" 
                       id="destaque" 
                       type="radio" 
                       className="validate" 
@@ -80,6 +108,7 @@ export default function PecaSuaMusica() {
                     </label>
                   </div>
                 </div>
+
                 <div className="col s12">
                   <Button className="btn waves-effect red-light red darken-4" type="submit" name="action">Enviar
                     <i className="material-icons right">cloud_upload</i>

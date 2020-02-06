@@ -6,7 +6,7 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import { Container, Button } from './styles';
 
 
-export default function MenuDefault() {
+export default function MenuDefault(props) {
 
   useEffect(()=>{
     var elems = document.querySelectorAll('.sidenav');
@@ -31,7 +31,7 @@ export default function MenuDefault() {
     <>
     <Container>
       <div className="nav-wrapper">
-        <audio id="player" src="http://live.hunter.fm/live"></audio>
+        <audio id="player" src={props.link? props.link : "http://live.hunter.fm/live"}></audio>
         <div className="container">
           <a href="/" className="brand-logo">
             <div className="col s12">

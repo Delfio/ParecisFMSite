@@ -1,15 +1,30 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Logo from '../../assets/logoParecis.svg'
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-import { Container, Div, DivInput } from './styles';
+import { Container, Div, DivInput, Li } from './styles';
 
+import api from '../../services/api'
 
 export default function Inicial(props) {
 
+  const [radio, setRadio] = useState([]);
+
   useEffect(() => {
-    var selecteds = document.querySelectorAll('select');
-    M.FormSelect.init(selecteds, {});
+
+    async function loadSeila(){
+      const response = await api.get('/principal');
+
+      const {data} = response;
+
+      setRadio(data);
+    }
+    loadSeila();
+    async function loadSelect(){
+      var elems = document.querySelectorAll('.dropdown-trigger');
+      M.Dropdown.init(elems, {});
+    };
+    loadSelect()
   }, [])
 
   async function handlePage(event){
@@ -30,14 +45,22 @@ export default function Inicial(props) {
             <h4 className="white-text">Selecione a sua rádio</h4>
               <div className="row">
                 <DivInput className="col s12 l12">
-                  <div className="input-field col s12 m6 l6 center-align">
-                    <select defaultValue="0" onChange={handlePage} className="icons center">
-                      <option value="default" defaultValue selected>Selecione sua cidade</option>
-                      <option value="1" data-icon={Logo}>Porto Velho</option>
-                      <option value="2" data-icon={Logo}>Ariquemes</option>
-                      <option value="3" data-icon={Logo}>Rolim de Moura</option>
-                    </select>
-                  </div>
+                  <button className='dropdown-trigger btn' data-target='dropdown1'>Escolha aqui a sua radio preferida</button>
+                  <ul style={{borderRadius: 7}} id='dropdown1' className='dropdown-content'>
+                    {radio.map(el => (
+                      <div key={el.id}>
+                        <a href={`/radio/${el.id}`}>
+                          <Li className="col 12">
+                            <p>{el.name}</p>
+                            <div style={{paddingTop: 8, backgroundColor: 'rgba(0,0,0, 0)'}} className="col s3">
+                              <img src={el.icon.url} alt=""/>
+                            </div>
+                          </Li>
+                          <li className="divider" tabIndex="-1"></li>
+                        </a>
+                      </div>
+                    ))}
+                  </ul>
                 </DivInput>
               </div>
           </Div>
