@@ -4,9 +4,17 @@ const socket = socketio(process.env.REACT_APP_API_URL, {
   autoConnect: false,
 });
 
-function connect() {
-  socket.connect()
+function subscribeToNewRequestMusic(subscribFunction){
+  socket.on('Novo-Pedido', subscribFunction);
 }
+
+function connect(radio_id) {
+  socket.io.opts.query = {
+    radio_id
+  }
+
+  socket.connect()
+};
 
 function disconnect() {
   if(socket.connected){
@@ -16,5 +24,6 @@ function disconnect() {
 
 export {
   connect,
-  disconnect
+  disconnect,
+  subscribeToNewRequestMusic
 }
