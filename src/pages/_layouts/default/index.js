@@ -1,6 +1,5 @@
 import React from 'react';
 
-// import Header from '../../../components/MenuDefault'
 // import Footer from '../../../components/Footer'
 // import Button from '../../../components/ButtonParecis'
 
