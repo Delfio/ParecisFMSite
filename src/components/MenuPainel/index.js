@@ -8,6 +8,9 @@ export default function MenuPainel() {
   const secret = process.env.REACT_APP_KEY_SECRET_KEY_WITH_A_AUTHENTICATION;
 
   const adm = useSelector(state => state.auth.config);
+
+  const profile = useSelector(state => state.user.profile);
+
   const dispatch = useDispatch();
 
   async function deslogar(){
@@ -16,14 +19,17 @@ export default function MenuPainel() {
 
   return (
     <div className="container">
+      <div className="hide-on-large-only" style={{marginTop: 25}}>
+        <a  href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+      </div>
       <ul id="slide-out" className="sidenav sidenav-fixed">
     <li><div className="user-view">
-      <div className="background">
+      <div className="background red">
         <img alt="imgBG" src="images/office.jpg" />
       </div>
-      <Link to="/profile"><img className="circle" alt="imgProfile" src="images/yuna.jpg" /></Link>
-      <Link to="profile"><span className="white-text name">John Doe</span></Link>
-      <Link to="profile"><span className="white-text email">jdandturk@gmail.com</span></Link>
+      <Link to="/profile"><img className="circle" alt="imgProfile" src={profile.avatar.url || 'https://api.adorable.io/avatars/285/abott@adorable.png'} /></Link>
+      <Link to="profile"><span className="white-text name">{profile.name}</span></Link>
+      <Link to="profile"><span className="white-text email">{profile.email}</span></Link>
     </div></li>
     <li>
       <Link to="/profile">
