@@ -2,9 +2,10 @@ import React, {useEffect, useState} from 'react';
 import { Form, Input } from '@rocketseat/unform';
 import { useSelector } from 'react-redux';
 import * as Yup from 'yup'
-// import { Container } from './styles';
+
 import api from '../../../services/api'
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const schema = Yup.object().shape({
   nome: Yup.string().required('Favor Insira um nome para o programa')
@@ -21,16 +22,25 @@ export default function CadastrarPrograma() {
   }, []);
 
   async function loadProgramas() {
+   try {
     const response = await api.get('/programa');
     setProgramas(response.data)
+   } catch (err) {
+    toast.error('Aconteceu algo de errado')
+   }
   }
 
   async function handleNewPrograma(data){
-    const response = await api.post('/programa', {
-      ...data
-    });
-
-    await setProgramas([...programas, response.data])
+    try {
+      const response = await api.post('/programa', {
+        ...data
+      });
+  
+      await setProgramas([...programas, response.data]);
+      toast.success('Programa Cadastrado com sucesso')
+    } catch (err) {
+      toast.error('Aconteceu algo de errado')
+    }
   }
 
   async function handlDelete(data){

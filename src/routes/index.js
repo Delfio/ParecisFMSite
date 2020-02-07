@@ -31,6 +31,7 @@ import AllLocutores from '../pages/Dashboard/UserLocutores/TodosOsLocutores';
 
 /* Atualizar */
 import AttPrograma from '../pages/Dashboard/Programa/Atualizar/AtualizarPrograma';
+import AttProgramation from '../pages/Dashboard/Programa/Atualizar/AtualizarProgarmation';
 
 
 export default function routes() {
@@ -58,6 +59,7 @@ export default function routes() {
       <Route path="/allLocutores" exact isPrivate component={AllLocutores}/>
 
       <Route path="/attPrograma/:id" exact isPrivate component={AttPrograma}/>
+      <Route path="/attProgramacao/:id" exact isPrivate component={AttProgramation}/>
       
       <Route path="/" component={() => <h1>404</h1>} />
     </Switch>

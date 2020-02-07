@@ -2,67 +2,46 @@ import React, {useEffect, useState} from 'react';
 import { Form } from '@rocketseat/unform';
 import { useSelector } from 'react-redux';
 import * as Yup from 'yup'
-import Table from './Table'
-import api from '../../../services/api'
+
+import api from '../../../../services/api'
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import Selected from './Selected';
+import Selected from '../Selected';
 
 const schema = Yup.object().shape({
-  horarios: Yup.string().required('Selecione algum horario'),
-  dia: Yup.string().required('Selecione algum Dia'),
-  locutor: Yup.string().required('Selecione algum Locutor'),
-  programa: Yup.string().required('Selecione algum Programa'),
-
+  horarios: Yup.string(),
+  dia: Yup.string(),
+  locutor: Yup.string(),
+  programa: Yup.string(),
 })
 
-export default function CadastrarProgramacao() {
-
+export default function AtualizarProgramation(props) {
+  const { id } = props.match.params
+  const [programations, setProgramations] = useState([])
 
   const profile = useSelector(state => state.user.profile);
 
   useEffect(() => {
     loadLocutores();
     loadProgramas();
-    
   }, []);
 
-  const conteudo = [];
-
-  const programa = [];
+  const conteudo = []
+  const programa = []
   
   async function loadLocutores(){
     const response = await api.get(`/locutores/${profile.radio_id}`)
     const {data} = response;
-
+    
     data.map(el => conteudo.push({id: el.id, title: el.name}));
-  }
+  };
 
   async function loadProgramas () {
     const response = await api.get('/programa');
     const {data} = response;
 
     data.map(el => programa.push({id: el.id, title: el.nome}));
-  }
-
-  async function loadProgramacao(data, { resetForm }){
-    const { horarios } =data;
-
-    const horaFormatada = horarios.join(',');
-
-    const resplace = horaFormatada.replace(/[,]+/g, ' ');
-    
-    await api.post('/programacaos', {
-      "horario": resplace,
-      "programa_id": data.programa,
-      "dia_id": data.dia,
-      "user_id": data.locutor,
-      "radio_id": profile.radio_id
-    });
-
-    resetForm();
-    toast.success('Programação cadastrada com Sucesso')
   }
 
   const dias = [
@@ -102,14 +81,37 @@ export default function CadastrarProgramacao() {
     { id: '24:00', title: '24:00' },
   ]
 
+  async function updateProgramation(data, { resetForm }){
+    try {
+
+      console.log(data)
+
+      const { horarios } = data;
+      const horaFormatada = horarios.join(',');
+      const resplace = horaFormatada.replace(/[,]+/g, ' ');
+
+      const response = await api.put(`programacaos/${id}`, {
+        ...data,
+        horario: resplace
+      });
+      
+      console.log(response);
+
+      resetForm();
+      toast.success('Programação Atualizada com sucesso')
+    } catch(err){
+      toast.error('Algo deu errado')
+    }
+  }
+
   return (
     <div className="container">
       <div className="row">
         <div style={{marginTop: 50}} className="col s12 m10 offset-m1 xl12 offset-xl1 left-align">
-          <h3>Progamações</h3>
+          <h3>Atualizar Programação</h3>
 
           <div className="row">
-            <Form style={{color: 'red'}} schema={schema} onSubmit={loadProgramacao}>
+            <Form style={{color: 'red'}} schema={schema} onSubmit={updateProgramation}>
               <div className="row">
                <div className="col l6 s12">
                 <Selected 
@@ -127,17 +129,15 @@ export default function CadastrarProgramacao() {
                   />
                </div>
                <div className="col l6 s12">
-               {console.log(conteudo)}
-               {console.log(horas)}
                 <Selected 
-                    name="locutor" 
+                    name="aaaa" 
                     label="Selecione o Locutor Principal" 
                     options={conteudo}
                   />
                </div>
                <div className="col l6 s12">
                 <Selected 
-                    name="programa" 
+                    name="programa_id" 
                     label="Selecione o nome do Programa" 
                     options={programa}
                   />
@@ -150,8 +150,6 @@ export default function CadastrarProgramacao() {
               </div>
             </Form>
           </div>
-          <br/>
-          <Table />
         </div>
       </div>
     </div>
