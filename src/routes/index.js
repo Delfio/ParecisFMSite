@@ -5,9 +5,33 @@ import Route from './Route';
 
 import Inital from '../pages/Inicial'
 import Main from '../pages/Main';
-import Dashboard from '../pages/Dashboard';
 
 import Login from '../pages/auth/login';
+
+/* Paineis */
+import Dashboard from '../pages/Dashboard';
+
+/* Programações */
+import CadastrarPrograma from '../pages/Dashboard/Programa/CadatrarPrograma';
+import CadastrarProgramacao from '../pages/Dashboard/Programa/CadastrarProgramacao';
+import ListarPrograma from '../pages/Dashboard/Programa/ListProgramas';
+import ListarProgramacao from '../pages/Dashboard/Programa/ListProgramacao';
+
+/* Radio */
+import InfosRadio from '../pages/Dashboard/Radio/Informations';
+import EnviarBanner from '../pages/Dashboard/Radio/EnviarBanner';
+import CadPromocao from '../pages/Dashboard/Radio/CadastrarPromocoes';
+import AllPromotions from '../pages/Dashboard/Radio/ListarPromocoes';
+import Top3 from '../pages/Dashboard/Radio/Top3';
+import Contato from '../pages/Dashboard/Radio/Contato';
+
+/* User / locutor */
+import AllUsers from '../pages/Dashboard/UserLocutores/TodosOsUsuarios';
+import AllLocutores from '../pages/Dashboard/UserLocutores/TodosOsLocutores';
+
+/* Atualizar */
+import AttPrograma from '../pages/Dashboard/Programa/Atualizar/AtualizarPrograma';
+
 
 export default function routes() {
   return (
@@ -15,10 +39,26 @@ export default function routes() {
       <Route path="/" exact component={Inital}/>
       <Route path="/radio/:id" exact component={Main}/>
 
-      <Route path="/painel" exact isPrivate component={Dashboard}/>
-
       <Route path="/login" login component={Login}/>
 
+      <Route path="/painel" exact isPrivate component={Dashboard}/>
+      <Route path="/cadPrograma" exact isPrivate component={CadastrarPrograma}/>
+      <Route path="/cadProgramacao" exact isPrivate component={CadastrarProgramacao}/>
+      <Route path="/allPrograma" exact isPrivate component={ListarPrograma}/>
+      <Route path="/allProgramacao" exact isPrivate component={ListarProgramacao}/>
+
+      <Route path="/sobre" exact isPrivate component={InfosRadio}/>
+      <Route path="/cadBanner" exact isPrivate component={EnviarBanner}/>
+      <Route path="/cadPromocao" exact isPrivate component={CadPromocao}/>
+      <Route path="/allPromocoes" exact isPrivate component={AllPromotions}/>
+      <Route path="/top3" exact isPrivate component={Top3}/>
+      <Route path="/contato" exact isPrivate component={Contato}/>
+      
+      <Route path="/allUsers" exact isPrivate component={AllUsers}/>
+      <Route path="/allLocutores" exact isPrivate component={AllLocutores}/>
+
+      <Route path="/attPrograma/:id" exact isPrivate component={AttPrograma}/>
+      
       <Route path="/" component={() => <h1>404</h1>} />
     </Switch>
   );

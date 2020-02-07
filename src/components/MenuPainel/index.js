@@ -27,7 +27,7 @@ export default function MenuPainel() {
       <div className="background red">
         <img alt="imgBG" src="images/office.jpg" />
       </div>
-      <Link to="/profile"><img className="circle" alt="imgProfile" src={profile.avatar.url || 'https://api.adorable.io/avatars/285/abott@adorable.png'} /></Link>
+      <Link to="/profile"><img className="circle" alt="imgProfile" src={profile.avatar ? profile.avatar.url || 'https://api.adorable.io/avatars/285/abott@adorable.png': 'https://api.adorable.io/avatars/285/abott@adorable.png'} /></Link>
       <Link to="profile"><span className="white-text name">{profile.name}</span></Link>
       <Link to="profile"><span className="white-text email">{profile.email}</span></Link>
     </div></li>
@@ -40,6 +40,11 @@ export default function MenuPainel() {
       <a href="/">
         <i className="material-icons">home</i>Retornar ao site
       </a>
+    </li>
+    <li>
+      <Link to="/painel">
+        <i className="material-icons">dashboard</i>Painel
+      </Link>
     </li>
     <li>
       <Link to="#" onClick={deslogar} className="red-text grey lighten-2">
