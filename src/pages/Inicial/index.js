@@ -53,7 +53,7 @@ export default function Inicial(props) {
                           <Li className="col 12">
                             <p>{el.name}</p>
                             <div style={{paddingTop: 8, backgroundColor: 'rgba(0,0,0, 0)'}} className="col s3">
-                              <img src={el.icon.url} alt=""/>
+                              <img src={el.icon ? el.icon.url : Logo} alt=""/>
                             </div>
                           </Li>
                           <li className="divider" tabIndex="-1"></li>

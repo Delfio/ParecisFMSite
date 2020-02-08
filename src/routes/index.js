@@ -29,9 +29,16 @@ import Contato from '../pages/Dashboard/Radio/Contato';
 import AllUsers from '../pages/Dashboard/UserLocutores/TodosOsUsuarios';
 import AllLocutores from '../pages/Dashboard/UserLocutores/TodosOsLocutores';
 
+import Profile from '../pages/Dashboard/UserLocutores/Profile';
+
+
 /* Atualizar */
 import AttPrograma from '../pages/Dashboard/Programa/Atualizar/AtualizarPrograma';
 import AttProgramation from '../pages/Dashboard/Programa/Atualizar/AtualizarProgarmation';
+import AttTop3 from '../pages/Dashboard/Radio/AtualizarTop3';
+
+import CadBannerPromotion from '../pages/Dashboard/Radio/CadastrarBannerPromocao';
+import CadastrarImagemTop3 from '../pages/Dashboard/Radio/CadastrarImagemTop3';
 
 
 export default function routes() {
@@ -60,6 +67,15 @@ export default function routes() {
 
       <Route path="/attPrograma/:id" exact isPrivate component={AttPrograma}/>
       <Route path="/attProgramacao/:id" exact isPrivate component={AttProgramation}/>
+
+      <Route path="/cadImgPromotion/:id" exact isPrivate component={CadBannerPromotion}/>
+      <Route path="/uploadImageTop3/:id" exact isPrivate component={CadastrarImagemTop3}/>
+
+      <Route path="/attTop3/:id" exact isPrivate component={AttTop3}/>
+
+
+      <Route path="/profile" exact isPrivate component={Profile}/>
+      
       
       <Route path="/" component={() => <h1>404</h1>} />
     </Switch>

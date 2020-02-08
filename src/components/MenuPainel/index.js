@@ -67,12 +67,6 @@ export default function MenuPainel() {
                 <li>
                   <Link to="/cadProgramacao"> Cadastrar Programação </Link>
                 </li>
-                <li>
-                  <Link to="/allPrograma"> Listar Programas </Link>
-                </li>
-                <li>
-                  <Link to="/allProgramacao"> Listar Programação </Link>
-                </li>
               </ul>
             </div>
         </li>
@@ -89,9 +83,6 @@ export default function MenuPainel() {
                 </li>
                 <li>
                   <Link to="/cadPromocao"> Cadastrar Promoções </Link>
-                </li>
-                <li>
-                  <Link to="/allPromocoes"> Listar promoções </Link>
                 </li>
                 <li>
                   <Link to="/top3"> Top3 </Link>

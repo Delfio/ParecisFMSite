@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 
 import api from '../../services/api'
 
-import Canvas from './Notifications'
-
 export default function TentandoDashboard() {
   const [date, setdate] = useState(new Date());
   const [request, setRequest] = useState([{}])
@@ -25,7 +23,6 @@ export default function TentandoDashboard() {
     <main>
       <div className="container">
         <div className="row">
-          <Canvas />
           <div style={{marginTop: 26}} className="col s12 m8 offset-m1 xl12 offset-xl1 center">
             <h2 style={{fontWeight: '300'}} className="red-text">{`Bem vindo ${name}`}</h2>
             <div className="left-align">
@@ -46,15 +43,15 @@ export default function TentandoDashboard() {
                   </thead>
                 
                   <tbody>
-                    {request.map(el =>(
-                      <tr key={el.id}>
+                    {request? request.map(el =>(
+                      <tr key={el.id? el.id : 112224}>
                         <td>{el.nome}</td>
                         <td>{el.telefone}</td>
                         <td>{el.artista}</td>
                         <td>{el.musica}</td>
                         <td>{el.programacao? el.programacao.programa.nome : null}</td>
                     </tr>
-                    ))}
+                    )): null}
                   </tbody>
                 </table>
             </div>

@@ -4,7 +4,7 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 import Menu from '../../../components/MenuPainel'
 // import Footer from '../../../components/Footer'
 // import Button from '../../../components/ButtonParecis'
-
+import Canvas from '../../Dashboard/Notifications'
 import { Wrapper } from './styles';
 
 export default function AuthLayout({children}) {
@@ -19,6 +19,7 @@ export default function AuthLayout({children}) {
   return (
     <Wrapper className="container">
       <Menu />
+      <Canvas />
       {children}
     </Wrapper>
   );

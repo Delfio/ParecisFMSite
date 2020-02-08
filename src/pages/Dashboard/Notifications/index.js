@@ -25,8 +25,11 @@ export default function Notifications() {
 
   useEffect(() => {
     stupWebSocket();
-    loadNewRequestMusic();
   }, []);
+
+  useEffect(() => {
+    loadNewRequestMusic();
+  }, [conteudo])
 
   function loadNewRequestMusic() {
     subscribeToNewRequestMusic(request => setConteudo([...conteudo, {

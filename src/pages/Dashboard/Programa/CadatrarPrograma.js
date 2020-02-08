@@ -73,10 +73,10 @@ export default function CadastrarPrograma() {
                     <td>{el.nome}</td>
                     <td>{el.createdAt}</td>
                     <td>{el.criador ? el.criador.name : null}</td>
-                    <td>
+                    <td className={profile.config === secret ? null : 'hide'}>
                       <button onClick={() => handlDelete(el.id)} className="btn-floating waves-effect waves-light red"><i className="material-icons">delete</i></button>
                     </td>
-                    <td>
+                    <td className={profile.config === secret ? null : 'hide'}>
                       <Link to={`attPrograma/${el.id}`}> Atualizar </Link>
                     </td>
                   </tr>

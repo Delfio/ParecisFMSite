@@ -49,9 +49,9 @@ export default function CadastrarProgramacao() {
   async function loadProgramacao(data, { resetForm }){
     const { horarios } =data;
 
-    const horaFormatada = horarios.join(',');
+    // const horaFormatada = horarios.join(',');
 
-    const resplace = horaFormatada.replace(/[,]+/g, ' ');
+    const resplace = horarios.replace(/[,]+/g, ' ');
     
     await api.post('/programacaos', {
       "horario": resplace,
@@ -127,8 +127,6 @@ export default function CadastrarProgramacao() {
                   />
                </div>
                <div className="col l6 s12">
-               {console.log(conteudo)}
-               {console.log(horas)}
                 <Selected 
                     name="locutor" 
                     label="Selecione o Locutor Principal" 
