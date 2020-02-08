@@ -53,7 +53,6 @@ export default function Informations() {
   return (
     <div className="container">
       <div className="row">
-        {console.log(radio)}
         <div style={{marginTop: 50}} className="col s12 m10 offset-m1 xl12 offset-xl1 left-align">
           <h3>Rádio: {radio.name} </h3>
           <br/>

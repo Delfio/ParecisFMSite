@@ -48,13 +48,13 @@ export default function Notifications() {
   // }
 
   return (
-    <div className="left-align">
+    <div style={{zIndex: 2}} className="left-align">
        <Launcher
         agentProfile={{
           teamName: 'Pedidos de músicas',
           imageUrl: `${LogoParecis || 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'}  `
         }}
-        onMessageWasSent={() => {console.log(this)}}
+        onMessageWasSent={() => {console.log("Ainda não implementado")}}
         messageList={conteudo}
       />
     </div>

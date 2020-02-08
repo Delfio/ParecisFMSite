@@ -36,6 +36,8 @@ export default function Inicial(props) {
     )
   }
 
+  console.log(radio)
+
   return (
     <Container>
       <div className="row">

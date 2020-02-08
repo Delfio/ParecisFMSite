@@ -25,7 +25,6 @@ export default function CadastrarPromocoes(props) {
   }
 
   async function handleCadastrarPromotion(data){
-    console.log(profile.radio_id);
     const response = await api.post(`/promocao/${profile.radio_id}`, {
       ...data
     });

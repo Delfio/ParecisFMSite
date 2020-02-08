@@ -151,7 +151,6 @@ export default function Contatos() {
                     </thead>
 
                     <tbody>
-                      {console.log(contato)}
                       {contato.map(el => (
                         <tr key={el.id}>
                           <td>{el.link}</td>

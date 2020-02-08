@@ -18,7 +18,7 @@ const schema = Yup.object().shape({
 
 export default function AtualizarProgramation(props) {
   const { id } = props.match.params
-  const [programations, setProgramations] = useState([])
+  // const [programations, setProgramations] = useState([])
 
   const profile = useSelector(state => state.user.profile);
 
@@ -84,18 +84,14 @@ export default function AtualizarProgramation(props) {
   async function updateProgramation(data, { resetForm }){
     try {
 
-      console.log(data)
-
       const { horarios } = data;
       const horaFormatada = horarios.join(',');
       const resplace = horaFormatada.replace(/[,]+/g, ' ');
 
-      const response = await api.put(`programacaos/${id}`, {
+      await api.put(`programacaos/${id}`, {
         ...data,
         horario: resplace
       });
-      
-      console.log(response);
 
       resetForm();
       toast.success('Programação Atualizada com sucesso')
