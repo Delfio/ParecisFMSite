@@ -217,7 +217,8 @@ export const DivInfosLocutor = styled.div`
 
   h4{
     font-weight: 600;
-    color: #ff9b00
+    color: #ff9b00;
+    font-size: 55px;
   }
 
   /* background-image: linear-gradient(to top right, rgba(0,0,0), rgba(0,0,0)); */
@@ -226,6 +227,28 @@ export const DivInfosLocutor = styled.div`
 
 export const DivInfos = styled.div`
 
-  border-bottom: solid 2px rgba(255,255,255, 0.1);
+  border-top: solid 2px rgba(255,255,255, 0.1);
 
+`;
+
+export const ButtonPlay = styled.button`
+  background-color: #ffc107 !important;
+  /* background-color: #9e1e24; */
+  color: #ffc107;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  box-shadow: 0 5px #891a1f;
+  i{
+    display: flex;
+    position: top;
+    margin-top: -13px
+  }
+  &:hover{
+    color: #e5e5e5;
+    background-color: #86181d; 
+  }
+  @media (max-width: 395px) {
+    font-size: 2px;
+  }
 `;

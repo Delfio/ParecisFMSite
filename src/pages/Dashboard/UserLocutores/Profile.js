@@ -46,6 +46,10 @@ export default function Profile() {
       toast.success('imagem atualizada com sucesso');
 
       return { url: 'https://httpbin.org/post', body };
+  };
+
+  async function handleUpdateProfile(data){
+    
   }
   
   return (
@@ -73,7 +77,7 @@ export default function Profile() {
           </div>
           <div style={{marginTop: 35}} className="col s12">
             <h4>Informações Cadastrais</h4>
-            <Form initialData={perfil}>
+            <Form initialData={perfil} onSubmit={handleUpdateProfile}>
               <div className="row">
                 <div class="input-field col s6">
                   <Input name="name" id="name" type="text" class="validate" />
@@ -82,6 +86,10 @@ export default function Profile() {
                 <div class="input-field col s6">
                   <Input name="email" id="email" type="email" class="validate" />
                   <span>Email</span>
+                </div>
+                <div class="input-field col s6">
+                  <Input style={{WebkitAppearance: 'none', appearance: 'textfield'}} name="telefone" type="number" class="validate" />
+                  <span>Telefone</span>
                 </div>
               </div>
             </Form>

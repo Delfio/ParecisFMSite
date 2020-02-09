@@ -45,7 +45,7 @@ export default function ProgramacaoSemanal({id: RadioID}) {
         <div className="container center">
           <h5 style={{fontWeight: 700, marginTop: 35}}>PROGRAMAÇÃO</h5>
         </div>
-        {console.log(segunda)}
+
         <div className="row">
           <div className="col s12 l6">
             <UlProgramacao className="col s12">

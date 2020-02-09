@@ -13,25 +13,25 @@ export default function MenuDefault(props) {
     M.Sidenav.init(elems, {});
   }, [])
 
-  const [play, setPlay] = useState(false);
+  // const [play, setPlay] = useState(false);
 
-  function playAudio(){
-    var x = document.getElementById("player");
-    if(!play){
-      x.play()
-      setPlay(true)
-    }else{
-      x.pause()
-      setPlay(false)
-    }
+  // function playAudio(){
+  //   var x = document.getElementById("player");
+  //   if(!play){
+  //     x.play()
+  //     setPlay(true)
+  //   }else{
+  //     x.pause()
+  //     setPlay(false)
+  //   }
 
-  }
+  // }
 
   return (
     <>
     <Container>
       <div className="nav-wrapper">
-        <audio id="player" src={props.link? props.link : "http://live.hunter.fm/live"}></audio>
+        {/* <audio id="player" src="http://live.hunter.fm/live"></audio> */}
         <div className="container">
           <a href="/" className="brand-logo">
             <div className="col s12">
@@ -41,10 +41,10 @@ export default function MenuDefault(props) {
         </div>
         <ul style={{marginRight: '4.5em'}} id="nav-mobile" className="right hide-on-med-and-down">
           <li style={{marginRight: '1.5rem'}}>
-            <Button title={play? 'Pausar' : 'Play'} className="btn waves-effect waves-light" onClick={playAudio}>
+            {/* <Button title={play? 'Pausar' : 'Play'} className="btn waves-effect waves-light" onClick={playAudio}>
               AO VIVO
               <i className="material-icons right">{play? 'pause' : 'play_arrow'}</i>
-            </Button>
+            </Button> */}
           </li>
           <li style={{marginRight: '0.5em'}}><a href="#suamusica">PEÇA SUA MÚSICA</a></li>
           <li style={{marginRight: '0.5em'}}><a href="#maispedidas">AS MAIS PEDIDAS</a></li>
