@@ -7,6 +7,7 @@ import Inital from '../pages/Inicial'
 import Main from '../pages/Main';
 
 import Login from '../pages/auth/login';
+import Stream from '../pages/Main/Stream';
 
 /* Paineis */
 import Dashboard from '../pages/Dashboard';
@@ -50,6 +51,7 @@ export default function routes() {
       <Route path="/radio/:id" exact component={Main}/>
 
       <Route path="/login" login component={Login}/>
+      <Route path="/streamOnline" component={Stream}/>
 
       <Route path="/painel" exact isPrivate component={Dashboard}/>
       <Route path="/cadPrograma" exact isPrivate component={CadastrarPrograma}/>

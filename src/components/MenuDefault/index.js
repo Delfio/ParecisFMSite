@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import Logo from '../../assets/logoParecis.svg'
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-import { Container, Button } from './styles';
+import { Container } from './styles';
 
 
 export default function MenuDefault(props) {
