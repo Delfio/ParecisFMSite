@@ -33,6 +33,9 @@ export default function Promocoes(props) {
     speed: 500,
     slidesToShow: conteudo.length <= 2 ? 1 : conteudo.length === 3 ? 2: conteudo.length > 3 ? 3 : 1,
     slidesToScroll: 1,
+    adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
   };
 
   return (
@@ -42,10 +45,11 @@ export default function Promocoes(props) {
         {conteudo? (
           <Slider className="col s12" {...settings}>
             {conteudo.map(el => (
-              <div key={el.id} className="col s3 center-align">
-              <img style={{maxWidth: 300}} src={el.imagem ? el.imagem.url : null} className="responsive-img" alt="imgPromocao"/>
-              </div>
-
+              <a key={el.id} href={`/promocao/${el.id}`}>
+                <div  className="col s3 center-align">
+                  <img style={{maxWidth: 300}} src={el.imagem ? el.imagem.url : null} className="responsive-img" alt="imgPromocao"/>
+                </div>
+              </a>
             ))}
           </Slider>
         ): null}

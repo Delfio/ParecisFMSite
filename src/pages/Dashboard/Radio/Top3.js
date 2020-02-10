@@ -9,7 +9,8 @@ import { toast } from 'react-toastify';
 
 const schema = Yup.object().shape({
   artista: Yup.string().required('Favor insira um nome'),
-  musica: Yup.string().required('Favor insira o nome da música')
+  musica: Yup.string().required('Favor insira o nome da música'),
+  link: Yup.string().url('Insira um link válido').required('Insira um link de incorporação')
 })
 
 
@@ -67,7 +68,7 @@ export default function Top3(props) {
           <div className="input-field col l6 s6">
             <Input
               name="artista"
-              id="name"
+              id="artista"
               type="text"
               className="validate"
             />
@@ -76,12 +77,21 @@ export default function Top3(props) {
           <div className="input-field col l6 s6">
             <Input
               name="musica"
-              id="link"
+              id="musica"
               type="text"
               className="validate"
             />
             <label htmlFor="name">Música</label>
-
+          </div>
+          <div className="input-field col s12">
+            <Input
+              name="link"
+              id="link"
+              type="text"
+              className="validate"
+              placeholder="https://www.youtube.com/embed/zt4s9vbjpeU?list=RDzt4s9vbjpeU"
+            />
+            <label htmlFor="name">Link de Incorporação</label>
           </div>
           <div className="col s12">
             <button style={{zIndex: 0}} className="btn waves-effect waves-light" type="submit" name="action">Cadastrar

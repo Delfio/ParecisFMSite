@@ -5,6 +5,7 @@ import api from '../../services/api'
 import {toast} from 'react-toastify';
 
 import { SectionIMG, Ul, OuvirButton } from './styles';
+import { Link } from 'react-router-dom';
 
 export default function AsMaisPedidas({top3, id: RadioID}) {
   const infos = top3;
@@ -38,13 +39,14 @@ export default function AsMaisPedidas({top3, id: RadioID}) {
                 <p>{el.musica}</p>
                </div>
               </SectionIMG>
-              <OuvirButton
-                onClick={() => handleMussic(el.id)}
-                className="btn waves-effect waves-light red darken-3"
-                type="submit"
-                name="action"
-                  >Ouvir
-              </OuvirButton>
+              <Link to={`/top3/${el.id}/escutar/${RadioID}`}>
+                <OuvirButton
+                  className="btn waves-effect waves-light red darken-3"
+                  type="submit"
+                  name="action"
+                    >Ouvir
+                </OuvirButton>
+              </Link>
           </li>
           ))}
         </Ul>

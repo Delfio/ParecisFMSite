@@ -43,7 +43,7 @@ export default function CadastrarImagemTop3(props) {
       <div className="row">
         <div style={{marginTop: 55}} className="col s12 m10 offset-m1 xl12 offset-xl1 left-align">
           <h5>Envie uma imagem principal para o top 3</h5>
-          <p> Proporções ideias: 1000 x 1000</p>
+          <p> Proporções ideias: 518 x 600</p>
           <Dropzone
             // disabled={!logo}
             getUploadParams={getUploadParams}

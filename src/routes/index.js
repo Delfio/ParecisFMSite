@@ -8,6 +8,7 @@ import Main from '../pages/Main';
 
 import Login from '../pages/auth/login';
 import Stream from '../pages/Main/Stream';
+import ListTop3 from '../pages/Main/Top3';
 
 /* Paineis */
 import Dashboard from '../pages/Dashboard';
@@ -49,6 +50,8 @@ export default function routes() {
     <Switch>
       <Route path="/" exact component={Inital}/>
       <Route path="/radio/:id" exact component={Main}/>
+
+      <Route path="/top3/:musica_id/escutar/:id" exact component={ListTop3}/>
 
       <Route path="/login" login component={Login}/>
       <Route path="/streamOnline" component={Stream}/>

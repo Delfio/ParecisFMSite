@@ -4,9 +4,11 @@ import Logo from '../../assets/logoParecis.svg'
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 import { Container } from './styles';
+import { Link } from 'react-router-dom';
 
 
-export default function MenuDefault(props) {
+export default function MenuDefault({id}) {
+  
 
   useEffect(()=>{
     var elems = document.querySelectorAll('.sidenav');
@@ -33,11 +35,11 @@ export default function MenuDefault(props) {
       <div className="nav-wrapper">
         {/* <audio id="player" src="http://live.hunter.fm/live"></audio> */}
         <div className="container">
-          <a style={{zIndex: 5}} href="/" className="brand-logo center">
+          <Link style={{zIndex: 5}} to={id? `/radio/${id}` : '/'} className="brand-logo center">
             <div className="col s12">
               <img className="responsive-img" style={{width: '100%', height: '100%', maxWidth: '80px', maxHeight: '150px', marginTop: 6}} src={Logo} alt=""/>
             </div>
-          </a>
+          </Link>
         </div>
         <ul style={{marginRight: '4.5em'}} id="nav-mobile" className="right hide-on-med-and-down">
 
