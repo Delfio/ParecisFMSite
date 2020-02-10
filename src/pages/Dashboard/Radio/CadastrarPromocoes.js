@@ -67,6 +67,9 @@ export default function CadastrarPromocoes(props) {
 
             </div>
             <div className="col s12">
+
+            </div>
+            <div className="col s12">
               <button style={{zIndex: 0}} className="btn waves-effect waves-light" type="submit" name="action">Cadastrar
                 <i className="material-icons right">send</i>
               </button>
