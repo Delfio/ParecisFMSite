@@ -15,7 +15,8 @@ export default function ListTop3(props) {
   useEffect(() => {
     loadVideo(musica_id);
     loadTop3s();
-  }, [])
+
+  }, [musica_id])
 
   async function loadVideo(musica_id) {
     const response = await api.get(`top3Att/${musica_id}`)
@@ -48,7 +49,7 @@ export default function ListTop3(props) {
             <h5 className="center">Confira nossa lista</h5>
             <ul>
               {top3.map((el, indice) => (
-                <li style={{display: 'flex', marginTop: 15, alignItems: 'stretch', borderBottom: 'dotted 1px rgba(0,0,0,0.7)'}} className="col s12">
+                <li key={el.id} style={{display: 'flex', marginTop: 15, alignItems: 'stretch', borderBottom: 'dotted 1px rgba(0,0,0,0.7)'}} className="col s12">
                   <span style={{marginRight: 10, display: 'flex', minHeight: '100%', alignItems: 'center'}}>
                     <button onClick={() => loadVideo(el.id)}  style={{backgroundColor: videoExecucao.id === el.id ? '#f9ab00': 'red'}} className="btn-small waves-effect waves-light">
                       #{indice+1}

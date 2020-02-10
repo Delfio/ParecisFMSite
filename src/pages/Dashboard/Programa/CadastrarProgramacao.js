@@ -19,14 +19,15 @@ const schema = Yup.object().shape({
 
 export default function CadastrarProgramacao() {
 
+  //Suave
 
   const profile = useSelector(state => state.user.profile);
 
   useEffect(() => {
     loadLocutores();
     loadProgramas();
-    
-  }, []);
+
+  }, [loadLocutores, loadProgramas]);
 
   const conteudo = [];
 
@@ -54,11 +55,11 @@ export default function CadastrarProgramacao() {
     const resplace = horarios.replace(/[,]+/g, ' ');
     
     await api.post('/programacaos', {
-      "horario": resplace,
-      "programa_id": data.programa,
-      "dia_id": data.dia,
-      "user_id": data.locutor,
-      "radio_id": profile.radio_id
+      horario: resplace,
+      programa_id: data.programa,
+      dia_id: data.dia,
+      user_id: data.locutor,
+      radio_id: profile.radio_id
     });
 
     resetForm();

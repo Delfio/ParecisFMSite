@@ -25,7 +25,7 @@ export default function Promocoes(props) {
 
     }
     loadPromocoes();
-  }, []);
+  }, [id]);
 
   var settings = {
     dots: true,

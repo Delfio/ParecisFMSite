@@ -25,7 +25,8 @@ export default function AtualizarProgramation(props) {
   useEffect(() => {
     loadLocutores();
     loadProgramas();
-  }, []);
+    console.log('repetindo')
+  }, [loadLocutores, loadProgramas]);
 
   const conteudo = []
   const programa = []

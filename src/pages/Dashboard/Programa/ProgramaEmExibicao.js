@@ -26,6 +26,7 @@ export default function ProgramaEmExibicao() {
 
   useEffect(() => {
     loadProgramacoes();
+
   }, [])
 
   async function handleNewTitle(data, { resetForm  }){

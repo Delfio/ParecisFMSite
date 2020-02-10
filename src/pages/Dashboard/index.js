@@ -11,7 +11,7 @@ export default function TentandoDashboard() {
 
   useEffect(() => {
     loadNotifications()
-  }, [])
+  }, [loadNotifications])
 
   async function loadNotifications(){
     const response = await api.get(`notifications/${radio_id}?data=${date}`);

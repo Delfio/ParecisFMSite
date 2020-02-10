@@ -9,6 +9,7 @@ import Main from '../pages/Main';
 import Login from '../pages/auth/login';
 import Stream from '../pages/Main/Stream';
 import ListTop3 from '../pages/Main/Top3';
+import DetailsPromocao from '../pages/Main/DetailsPromocao';
 
 /* Paineis */
 import Dashboard from '../pages/Dashboard';
@@ -52,6 +53,7 @@ export default function routes() {
       <Route path="/radio/:id" exact component={Main}/>
 
       <Route path="/top3/:musica_id/escutar/:id" exact component={ListTop3}/>
+      <Route path="/promocao/:id" exact component={DetailsPromocao}/>
 
       <Route path="/login" login component={Login}/>
       <Route path="/streamOnline" component={Stream}/>

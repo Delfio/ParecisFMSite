@@ -23,12 +23,17 @@ export default function Main(props) {
   //banner
   const [banner1, setBanner1] = useState([]);
   const [banner2, setBanner2] = useState([]);
-  //link
+  //links
   const[link, setLink] = useState({});
+  const[facebook, setFacebook] = useState({});
+  const[instagram, setInstagram] = useState({});
+  const[whats, setWhats] = useState({});
+  const[cidade, setCidade] = useState({});
+  const[name, setName] = useState({});
   //top3
   const[top3, setTop3] = useState([]);
   //todas as programações
-  const[allProgramacao, setAllProgramacao] = useState([]);
+  const[programacao, setProgramacao] = useState([]);
 
   useEffect(() => {
     async function loadDados() {
@@ -40,18 +45,23 @@ export default function Main(props) {
         const {data} = response;
   
         data.map(el => {
+          setFacebook(el.facebook)
+          setInstagram(el.instagram)
+          setWhats(el.whatsapp)
+          setName(el.name)
+          setCidade(el.cidade ? el.cidade.nome : null)
           setBanner1(el.banner1)
           setBanner2(el.banner2)
           setLink(el.link)
           setTop3(el.top3)
-          setAllProgramacao(el.allprogramacao)
+          setProgramacao(el.programacao)
         })
       } catch (err) {
         console.log(err.message)
       }
     }
     loadDados();
-  }, []);
+  }, [date, id]);
 
   return (
     <>
@@ -59,12 +69,24 @@ export default function Main(props) {
       <ButtonParecis />
       <Banner banner1={banner1} banner2={banner2} />
       <Radio link={link}/>
-      <ProgramacaoAtual />
+      <ProgramacaoAtual 
+        link={link} 
+        facebook={facebook} 
+        instagram={instagram} 
+        whats={whats}
+        cidade={cidade}
+        programacao={programacao}
+        name={name}
+      />
       <Form id={id}/>
       <MaisPedidas top3={top3} id={id} />
       <Promocoes id={id} />
       <Programacao id={id} />
-      <Footer />
+      <Footer 
+        facebook={facebook} 
+        instagram={instagram} 
+        whats={whats} 
+      />
     </>
   );
 }
