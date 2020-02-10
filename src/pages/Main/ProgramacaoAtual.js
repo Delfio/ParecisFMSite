@@ -22,10 +22,6 @@ export default function ProgramacaoAtual(props) {
     }
 
   }
-
-  function handlePageStream() {
-    props.history.push('/')
-  }
   
   return (
     <div style={{marginTop: -5}} className="row grey darken-4">
@@ -39,22 +35,19 @@ export default function ProgramacaoAtual(props) {
             <p className="white-text hide-on-small-only" style={{marginLeft: 5, fontSize: 20}}> 98.1 Parecis FM</p>
           </div>
           <DivInfos style={{display: 'block', marginTop: 25}} className="col s12">
-            <div className="col s6 l6 hide-on-small-only">
-              <Button style={{backgroundColor: '#ffc107'}} title={play? 'Pausar' : 'Play'} className="btn left btn-large" onClick={playAudio}>
+            <div style={{display: 'flex',justifyContent: 'space-around'}} className="col s12 l12">
+              <Button style={{backgroundColor: '#ffc107'}} title={play? 'Pausar' : 'Play'} className="btn left btn-large  hide-on-small-only" onClick={playAudio}>
                 PLAY
                 <i className="material-icons right">{play? 'pause' : 'play_arrow'}</i>
               </Button>
-            </div>
 
-            {/* Mobile */}
-            <div className="col s4 hide-on-med-and-up">
-              <Button style={{backgroundColor: '#ffc107'}} title={play? 'Pausar' : 'Play'} className="btn left btn-large" onClick={playAudio}>
-                <i className="material-icons center">{play? 'pause' : 'play_arrow'}</i>
-              </Button>
-            </div>
-            {/* Mobile */}
-            <div className="col s8 m6 l6">
-            <Link style={{color: 'white'}} to="/streamOnline">
+              {/* Mobile */}
+              <Button style={{backgroundColor: '#ffc107'}} title={play? 'Pausar' : 'Play'} className="btn left btn-large  hide-on-med-and-up" onClick={playAudio}>
+                  <i className="material-icons center">{play? 'pause' : 'play_arrow'}</i>
+                </Button>
+              {/* Mobile */}
+
+              <Link style={{color: 'white'}} to="/streamOnline">
                 <Button style={{backgroundColor: '#01579b'}} className="btn right btn-large">
                     AO VIVO
                   <i className="material-icons left">live_tv</i>

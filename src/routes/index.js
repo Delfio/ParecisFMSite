@@ -17,6 +17,8 @@ import CadastrarProgramacao from '../pages/Dashboard/Programa/CadastrarProgramac
 import ListarPrograma from '../pages/Dashboard/Programa/ListProgramas';
 import ListarProgramacao from '../pages/Dashboard/Programa/ListProgramacao';
 
+import ProgramaEmExibicao from '../pages/Dashboard/Programa/ProgramaEmExibicao';
+
 /* Radio */
 import InfosRadio from '../pages/Dashboard/Radio/Informations';
 import EnviarBanner from '../pages/Dashboard/Radio/EnviarBanner';
@@ -54,6 +56,7 @@ export default function routes() {
       <Route path="/cadProgramacao" exact isPrivate component={CadastrarProgramacao}/>
       <Route path="/allPrograma" exact isPrivate component={ListarPrograma}/>
       <Route path="/allProgramacao" exact isPrivate component={ListarProgramacao}/>
+      <Route path="/programasEmExibicao" exact isPrivate component={ProgramaEmExibicao}/>
 
       <Route path="/sobre" exact isPrivate component={InfosRadio}/>
       <Route path="/cadBanner" exact isPrivate component={EnviarBanner}/>

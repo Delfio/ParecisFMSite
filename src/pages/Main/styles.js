@@ -132,7 +132,7 @@ export const Programacao = styled.div`
 `
 
 export const UlProgramacao = styled.ul`
-  border-right: solid 3px #000;
+  /* border-right: solid 3px #000; */
   margin-left: 2% !important;
   display: table;
   flex-direction: column;

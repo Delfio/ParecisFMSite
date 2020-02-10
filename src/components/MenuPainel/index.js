@@ -67,6 +67,9 @@ export default function MenuPainel() {
                 <li>
                   <Link to="/cadProgramacao"> Cadastrar Programação </Link>
                 </li>
+                <li>
+                  <Link to="/programasEmExibicao"> Listagem de programações </Link>
+                </li>
               </ul>
             </div>
         </li>

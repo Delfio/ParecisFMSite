@@ -48,7 +48,7 @@ export default function Notifications() {
   // }
 
   return (
-    <div style={{zIndex: 2}} className="left-align">
+    <div style={{zIndex: 5}} className="left-align">
        <Launcher
         agentProfile={{
           teamName: 'Pedidos de músicas',

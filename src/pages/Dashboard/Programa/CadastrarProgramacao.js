@@ -97,9 +97,9 @@ export default function CadastrarProgramacao() {
     { id: '18:00', title: '18:00' },
     { id: '19:00', title: '19:00' },
     { id: '20:00', title: '20:00' },
+    { id: '21:00', title: '21:00' },
     { id: '22:00', title: '22:00' },
     { id: '23:00', title: '23:00' },
-    { id: '24:00', title: '24:00' },
   ]
 
   return (
