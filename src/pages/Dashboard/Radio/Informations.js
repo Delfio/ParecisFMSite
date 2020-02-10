@@ -18,7 +18,9 @@ export default function Informations() {
   const [banner1, setBanner1] = useState([])
   const [banner2, setBanner2] = useState([])
 
-  const [contato, setContato] = useState([])
+  const [contato, setContato] = useState([]);
+
+  const [icon, setIcon] = useState({});
 
   useEffect(() => {
     loadInfosRadio();
@@ -31,7 +33,7 @@ export default function Informations() {
       setRadio(response.data);
       setBanner1(response.data.banner1)
       setBanner2(response.data.banner2)
-
+      setIcon(response.data.icon)
       setContato(response.data.contato)
     } catch (err){
 
@@ -104,6 +106,12 @@ export default function Informations() {
               )) :null}
             </div>
             <br/>
+            <div className="row">
+              <h5 className="center">Icone</h5>
+              <div className="col s10 l12 m10">
+                <img style={{maxHeight: 150}} className="responsive-img" src={icon ? icon.url : null} alt="Icone"/>
+              </div>
+            </div>
             <div className="row">
               <div className="col s12 center">
               <h4>Contato</h4>

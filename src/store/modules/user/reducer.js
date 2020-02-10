@@ -19,6 +19,18 @@ export default function user(state = INITIAL_STATE, action){
         }
         break;
       }
+      case '@user/UPDATE_PROFILE_SUCCESS': {
+        draft.profile = {
+          id: action.payload.profile.id,
+          name: action.payload.profile.name,
+          radio_id: action.payload.profile.radio_id,
+          locutor: action.payload.profile.locutor,
+          email: action.payload.profile.email,
+          config: action.payload.profile.adm ? secret : null,
+          avatar: action.payload.profile.avatar
+        }
+        break;
+      }
       case '@auth/SIGN_OUT': {
         draft.profile = null;
         break;

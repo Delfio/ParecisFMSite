@@ -7,6 +7,7 @@ import Inital from '../pages/Inicial'
 import Main from '../pages/Main';
 
 import Login from '../pages/auth/login';
+import ResetPassword from '../pages/auth/login/EsqueciASenha';
 import Stream from '../pages/Main/Stream';
 import ListTop3 from '../pages/Main/Top3';
 import DetailsPromocao from '../pages/Main/DetailsPromocao';
@@ -54,8 +55,9 @@ export default function routes() {
 
       <Route path="/top3/:musica_id/escutar/:id" exact component={ListTop3}/>
       <Route path="/promocao/:id" exact component={DetailsPromocao}/>
-
+      
       <Route path="/login" login component={Login}/>
+      <Route path="/esqueciMinhaSenha" login component={ResetPassword}/>
       <Route path="/streamOnline" component={Stream}/>
 
       <Route path="/painel" exact isPrivate component={Dashboard}/>

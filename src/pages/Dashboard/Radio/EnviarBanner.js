@@ -3,15 +3,13 @@ import 'react-dropzone-uploader/dist/styles.css';
 import Dropzone from 'react-dropzone-uploader';
 import { useSelector } from 'react-redux';
 
-import { toast } from 'materialize-css';
+import { toast } from 'react-toastify';
 import api from '../../../services/api';
 
 // import { Container } from './styles';
 
 export default function EnviarBanner() {
   const profile = useSelector(state => state.user.profile);
-
-  const [banner1, setBanner1] = useState([])
 
   const getUploadParams = async ({ file, meta }) => {
     try {
@@ -59,6 +57,43 @@ export default function EnviarBanner() {
     }
   };
 
+  const getUploadParamsIcon = async ({ file, meta }) => {
+    try {
+      const body = new FormData();
+      body.append('fileField', file);
+
+      const data = new FormData();
+
+      data.append('file', file);
+
+      const iconCad = await api.post(`/icon`, data);
+      // const response = await api.get(`principal/${id}`);
+
+      // const { imagens } = response.data;
+      // setImages(imagens);
+      relationIconInRadio(iconCad.data.id);
+
+      return { url: 'https://httpbin.org/post', body };
+    } catch (err) {
+      toast.error('Algo deu errado! ');
+    }
+  };
+
+  async function relationIconInRadio(iconId) {
+    try {
+      await api.put(`radio/${profile.radio_id}`, {
+        icon_id: iconId
+      });
+      toast.success('Icone Cadastrado com sucesso');
+
+      return true;
+    } catch(err){
+      toast.error('Algo deu errado! ');
+
+      return false;
+    }
+  }
+
   return (
     <div className="container">
       <div className="row">
@@ -91,6 +126,25 @@ export default function EnviarBanner() {
             getUploadParams={getUploadParamsMobile}
             // preview="Adicionar imagem"
             inputContent="Selecione ou arraste o banner"
+            submitButtonContent="Enviar"
+            accept="image/*"
+            maxSizeBytes={2024 * 2024}
+            maxFiles={1}
+          />
+        </div>
+      </div>
+      <br/>
+      <div className="row">
+        <div className="col s12 m10 offset-m1 xl12 offset-xl1 left-align">
+          <div className="col s12 center">
+            <h4>Cadastrar Icone da Rádio</h4>
+            <p> Arquivos SVG </p>
+          </div>
+          <Dropzone
+            // disabled={!logo}
+            getUploadParams={getUploadParamsIcon}
+            // preview="Adicionar imagem"
+            inputContent="Selecione ou arraste o icone"
             submitButtonContent="Enviar"
             accept="image/*"
             maxSizeBytes={2024 * 2024}

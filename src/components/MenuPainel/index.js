@@ -25,9 +25,8 @@ export default function MenuPainel() {
       <ul id="slide-out" className="sidenav sidenav-fixed">
     <li><div className="user-view">
       <div className="background red">
-        <img alt="imgBG" src="images/office.jpg" />
+        <img alt="imgBG" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTZvxxEWvsEvdFVzN5ADxxvAGCIdCCJK-Wi6UoRHkik1WylSNeN" />
       </div>
-      <Link to="/profile"><img className="circle" alt="imgProfile" src={profile.avatar ? profile.avatar.url || 'https://api.adorable.io/avatars/285/abott@adorable.png': 'https://api.adorable.io/avatars/285/abott@adorable.png'} /></Link>
       <Link to="profile"><span className="white-text name">{profile.name}</span></Link>
       <Link to="profile"><span className="white-text email">{profile.email}</span></Link>
     </div></li>

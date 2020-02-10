@@ -4,6 +4,7 @@ import { Form, Input } from '@rocketseat/unform'
 import * as Yup from 'yup'
 import api from '../../../services/api';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 // import { Container } from './styles';
 
 const schema = Yup.object().shape({
@@ -32,6 +33,10 @@ export default function CadastrarPromocoes(props) {
     toast.success('Promoção cadastrada com sucesso')
     await props.history.push(`/cadImgPromotion/${promocaoCadastrada.id}`);
 
+  };
+
+  async function handlDelete(data){
+
   }
 
   return (
@@ -42,7 +47,7 @@ export default function CadastrarPromocoes(props) {
             <div className="col s12 hide-on-small-only">
               <h5 className="grey-text">Cadastre uma nova promoção</h5>
             </div>
-            <div className="input-field col l6 s6">
+            <div className="input-field col l6 s12">
               <Input
                 name="nome"
                 id="name"
@@ -51,7 +56,7 @@ export default function CadastrarPromocoes(props) {
               />
               <label htmlFor="name">Nome</label>
             </div>
-            <div className="input-field col l6 s6">
+            <div className="input-field col l6 s12">
               <Input
                 name="link"
                 id="link"
@@ -73,16 +78,45 @@ export default function CadastrarPromocoes(props) {
             <br/>
             <hr/>
             <h4>Promoções já cadastradas</h4>
-            <ul className="row">
-              {promotions.map(el => (
-                <li key={el.id} className="col s12">
-                  <div className="col s6">
-                    <img src={el.url} alt="imgPromotion"/>
-                  </div>
-                </li>
-              ))}
-              
-            </ul>
+            <table>
+              <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Link</th>
+                    <th>facebook</th>
+                    <th>whatsapp</th>
+                    <th>instagram</th>
+                    <th>imagem</th>
+                    <th>Atualizar</th>
+                    <th>Deletar</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {promotions.map(el => (
+                  <tr key={el.id}>
+                    <td>{el.nome}</td>
+                    <td>{el.link}</td>
+                    <td>{el.facebook? 'Sim': 'Não'}</td>
+                    <td>{el.whatsapp? 'Sim': 'Não'}</td>
+                    <td>{el.instagram? 'Sim': 'Não'}</td>
+                    <td>
+                      <div className="col s12">
+                        <img style={{maxHeight: 150}} className="responsive-img" src={el.imagem? el.imagem.url : null} alt="imagemPromotion"/>
+                      </div>
+                    </td>
+                    <td>
+                      <Link to={`/attPromotion/${el.id}`}>
+                        Atualizar
+                      </Link>
+                    </td>
+                    <td>
+                      <button onClick={() => handlDelete(el.id)} className="btn-floating waves-effect waves-light red"><i className="material-icons">delete</i></button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
             </div>
           </div>
         </div>

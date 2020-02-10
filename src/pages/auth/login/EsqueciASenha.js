@@ -1,27 +1,36 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
-import { signInRequest } from '../../../store/modules/auth/actions'
 
 import { Form, Input } from '@rocketseat/unform';
 
 import Logo from '../../../assets/logoParecis.svg'
+import api from '../../../services/api';
+import history from '../../../services/history';
+import { toast } from 'react-toastify';
 
-// import { Container } from './styles';
 
 const schema = Yup.object().shape({
-  email: Yup.string().email('Insira um email válido').required('Insira um email'),
-  password: Yup.string().required('Favor insira sua senha')
+  cfp_request: Yup.string().required('Insira seu CPF').min(11, 'Quantidade de números invalidos').max(11, 'Somente Números'),
+  cpf_password: Yup.string().required('Favor insira uma nova senha')
 })
 
-export default function LoginRequest() {
+export default function ResetPassword() {
 
-  const dispatch = useDispatch();
+  async function handleSubmit(data){
+    try {
+      await api.put('users/1', {
+        ...data
+      })
+      toast.success("Senha alterada com sucesso");
+      history.push('/login')
+    } catch(err){
+      toast.error("Dados inválidos, verifique seus dados ou consulte o RH");
 
-  async function handleSubmit({email, password}){
-    dispatch(signInRequest(email, password))
+    }
   }
+
+
 
   return (
     <div className="section">
@@ -45,25 +54,25 @@ export default function LoginRequest() {
 
                 <div className='row'>
                   <div className='input-field col s12'>
-                    <Input className='validate' type='email' name='email' id='email' />
-                    <label htmlFor='email'>Insira seu Email</label>
+                    <Input className='validate' type='text' name='cfp_request' id='text' />
+                    <label htmlFor='email'>Informe seu CPF SOMENTE NÚMEROS</label>
                   </div>
                 </div>
 
                 <div className='row'>
                   <div className='input-field col s12'>
-                    <Input className='validate' type='password' name='password' id='password' />
-                    <label htmlFor='password'>Insira sua Senha</label>
+                    <Input className='validate' type='password' name='cpf_password' id='password' />
+                    <label htmlFor='password'>Insira uma nova senha</label>
                   </div>
                   <label style={{float: 'right'}}>
-                    <Link className='pink-text'to="/esqueciMinhaSenha"><b>Esqueceu sua senha?</b></Link>
+                    <Link className='pink-text'to="/login"><b>Retornar ao Login</b></Link>
                   </label>
                 </div>
 
                 <br />
                 <center>
                   <div className='row'>
-                    <button type='submit' name='btn_login' className='col s12 btn btn-large waves-effect indigo'>Login</button>
+                    <button type='submit' name='btn_login' className='col s12 btn btn-large waves-effect indigo'>CRIAR NOVA SENHA</button>
                   </div>
                 </center>
               </Form>
@@ -74,3 +83,4 @@ export default function LoginRequest() {
     </div>
   );
 }
+
