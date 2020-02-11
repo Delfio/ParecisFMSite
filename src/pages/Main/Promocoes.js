@@ -39,6 +39,7 @@ export default function Promocoes(props) {
   };
 
   return (
+    <>
     <div className="row grey lighten-5">
       <div id="promocoes" className={`container`}>
         <h4 style={{fontWeight: 900, padding: 15}} className="center-align grey-text">Promoções</h4>
@@ -55,5 +56,6 @@ export default function Promocoes(props) {
         ): null}
       </div>
     </div>
+    </>
   );
 }

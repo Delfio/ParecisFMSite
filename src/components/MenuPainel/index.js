@@ -158,16 +158,10 @@ export default function MenuPainel() {
             <div className="collapsible-body">
               <ul className="">
                 <li>
-                  <Link to="/admin/CadCity"> Adicionar Cidade </Link>
+                  <Link to="/admin/CadCity"> Cidades </Link>
                 </li>
                 <li>
-                  <Link to="/admin/AllCitys"> Listar Cidades </Link>
-                </li>
-                <li>
-                  <Link to="/admin/CadEstado"> Adicionar Estado </Link>
-                </li>
-                <li>
-                  <Link to="/admin/AllEstados"> Listar  Estados </Link>
+                  <Link to="/admin/CadEstado"> Estados </Link>
                 </li>
               </ul>
             </div>

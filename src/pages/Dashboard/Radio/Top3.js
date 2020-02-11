@@ -59,81 +59,81 @@ export default function Top3(props) {
 
   return (
     <div className="container">
-    <div className="row">
-      <div style={{marginTop: 55}} className="col s12 m10 offset-m1 xl12 offset-xl1 left-align">
-        <Form style={{color: 'red'}} schema={schema} onSubmit={handleCadastrarTop3}>
-          <div className="col s12 hide-on-small-only">
-            <h5 className="grey-text">Cadastre novos TOP3</h5>
-          </div>
-          <div className="input-field col l6 s6">
-            <Input
-              name="artista"
-              id="artista"
-              type="text"
-              className="validate"
-            />
-            <label htmlFor="name">Nome do artista</label>
-          </div>
-          <div className="input-field col l6 s6">
-            <Input
-              name="musica"
-              id="musica"
-              type="text"
-              className="validate"
-            />
-            <label htmlFor="name">Música</label>
-          </div>
-          <div className="input-field col s12">
-            <Input
-              name="link"
-              id="link"
-              type="text"
-              className="validate"
-              placeholder="https://www.youtube.com/embed/zt4s9vbjpeU?list=RDzt4s9vbjpeU"
-            />
-            <label htmlFor="name">Link de Incorporação</label>
-          </div>
-          <div className="col s12">
-            <button style={{zIndex: 0}} className="btn waves-effect waves-light" type="submit" name="action">Cadastrar
-              <i className="material-icons right">send</i>
-            </button>
-          </div>
-        </Form>
+      <div className="row">
+        <div style={{marginTop: 55}} className="col s12 m10 offset-m1 xl12 offset-xl1 left-align">
+          <Form style={{color: 'red'}} schema={schema} onSubmit={handleCadastrarTop3}>
+            <div className="col s12 hide-on-small-only">
+              <h5 className="grey-text">Cadastre novos TOP3</h5>
+            </div>
+            <div className="input-field col l6 s6">
+              <Input
+                name="artista"
+                id="artista"
+                type="text"
+                className="validate"
+              />
+              <label htmlFor="name">Nome do artista</label>
+            </div>
+            <div className="input-field col l6 s6">
+              <Input
+                name="musica"
+                id="musica"
+                type="text"
+                className="validate"
+              />
+              <label htmlFor="name">Música</label>
+            </div>
+            <div className="input-field col s12">
+              <Input
+                name="link"
+                id="link"
+                type="text"
+                className="validate"
+                placeholder="https://www.youtube.com/embed/zt4s9vbjpeU?list=RDzt4s9vbjpeU"
+              />
+              <label htmlFor="name">Link de Incorporação</label>
+            </div>
+            <div className="col s12">
+              <button style={{zIndex: 0}} className="btn waves-effect waves-light" type="submit" name="action">Cadastrar
+                <i className="material-icons right">send</i>
+              </button>
+            </div>
+          </Form>
 
-        <br/>
-        <div className="row">
-          <div className="col s12">
-            <br/>
-          <h5>Top3 Cadastrados</h5>
-          <table>
-        <thead>
-          <tr>
-              <th>Artista</th>
-              <th>Musica</th>
-              <th>Imagem</th>
-              <th>Atualizar</th>
-              <th>Deletar</th>
-          </tr>
-        </thead>
+          <br/>
+          <div className="row">
+            <div className="col s12">
+              <br/>
+            <h5>Top3 Cadastrados</h5>
+              <table>
+                <thead>
+                  <tr>
+                      <th>Artista</th>
+                      <th>Musica</th>
+                      <th>Imagem</th>
+                      <th>Atualizar</th>
+                      <th>Deletar</th>
+                  </tr>
+                </thead>
 
-        <tbody>
-        {top3.map(el => (
-          <tr key={el.id}>
-            <td>{el.artista}</td>
-            <td>{el.musica}</td>
-            <td className="col s4">
-              <img style={{maxWidth: 55}} className="responsive-img" src={el.image? el.image.url: 'null'} alt="imagemTOp3"/>
-            </td>
-            <td>
-              <a href={`/attTop3/${el.id}`}>Atualziar</a>
-            </td>
-            <td>
-              <button onClick={() => handlDelete(el.id)} className="btn-floating waves-effect waves-light red"><i className="material-icons">delete</i></button>
-            </td>
-          </tr>
-        ))}
-        </tbody>
-      </table>
+                <tbody>
+                {top3.map(el => (
+                  <tr key={el.id}>
+                    <td>{el.artista}</td>
+                    <td>{el.musica}</td>
+                    <td className="col s4">
+                      <img style={{maxWidth: 55}} className="responsive-img" src={el.image? el.image.url: 'null'} alt="imagemTOp3"/>
+                    </td>
+                    <td>
+                      <a href={`/attTop3/${el.id}`}>Atualziar</a>
+                    </td>
+                    <td>
+                      <button onClick={() => handlDelete(el.id)} className="btn-floating waves-effect waves-light red"><i className="material-icons">delete</i></button>
+                    </td>
+                  </tr>
+                ))}
+                </tbody>
+              </table>
           </div>
         </div>
       </div>

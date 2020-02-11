@@ -10,8 +10,10 @@ const schema = Yup.object().shape({
   name: Yup.string().required('Favor insira um nome'),
   link: Yup.string().url('Insira uma URL válida').required('Favor insira um link')
 })
+const secret = process.env.REACT_APP_KEY_SECRET_KEY_WITH_A_AUTHENTICATION;
 
-export default function Informations() {
+export default function Informations(props) {
+  const idAdm = props.match.params.id
   const profile = useSelector(state => state.user.profile);
   const [radio, setRadio] = useState({});
 
@@ -23,13 +25,21 @@ export default function Informations() {
   const [icon, setIcon] = useState({});
 
   useEffect(() => {
-    loadInfosRadio();
+    if(idAdm){
+      console.log(idAdm)
+      if(profile.config !== secret){
+        loadInfosRadio(profile.radio_id);
+      }else {
+        loadInfosRadio(idAdm)
+      }
+    }else {
+      loadInfosRadio(profile.radio_id)
+    }
   }, []);
 
-  async function loadInfosRadio() {
+  async function loadInfosRadio(profileRadioID) {
     try {
-      const response = await api.get(`radio/${profile.radio_id}`);
-      
+      const response = await api.get(`radio/${profileRadioID}`);
       setRadio(response.data);
       setBanner1(response.data.banner1)
       setBanner2(response.data.banner2)
@@ -42,9 +52,19 @@ export default function Informations() {
 
   async function handleUpdateInfoRadio(data){
     try {
-       await api.put(`/radio/${profile.radio_id}`, {
-        ...data
-       })
+      if(idAdm){
+        if(profile.config !== secret){
+          await api.put(`/radio/${profile.radio_id}`, {
+            ...data
+           })
+        } else {
+          await api.put(`/radio/${idAdm}`, {
+            ...data
+           })
+        }
+      }
+
+
        toast.success('Atualizado com sucesso')
     } catch (err) {
       toast.error('Algo deu errado')

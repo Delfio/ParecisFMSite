@@ -4,8 +4,8 @@ import { toast } from 'react-toastify';
 
 // import { Container } from './styles';
 
-export default function AllUsers() {
-  const [locutores, setLocutores] = useState([]);
+export default function AllLocutores() {
+  const [adms, setAdms] = useState([]);
 
   useEffect(() => {
     loadAdms();
@@ -17,7 +17,7 @@ export default function AllUsers() {
 
       const {data} = response;
       
-      setLocutores(data.locutores)
+      setAdms(data.adms)
     } catch(err) {
       toast.error('Ocorreu um erro, atualize a página')
     }
@@ -27,7 +27,7 @@ export default function AllUsers() {
     <div className="container">
       <div className="row">
         <div className="col s12 m10 offset-m1 xl12 offset-xl1 left-align">
-          <h4 className="grey-text"> Todos os Usuarios </h4>
+          <h4 className="grey-text"> Todos os Administradores </h4>
           <table>
             <thead>
               <tr>
@@ -39,7 +39,7 @@ export default function AllUsers() {
             </thead>
 
             <tbody>
-              {locutores.length >= 1 ? locutores.map(el => (
+              {adms.length >= 1 ? adms.map(el => (
                 <tr key={el.id}>
                   <td>{el.name}</td>
                   <td>{el.email}</td>

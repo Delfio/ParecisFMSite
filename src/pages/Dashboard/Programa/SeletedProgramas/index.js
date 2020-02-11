@@ -11,7 +11,7 @@ export default function SelectProgramas(props) {
     loadTitles();
     loadProgramas();
 
-  }, [loadProgramas, loadTitles, props])
+  }, [props])
 
   const titles = []
   const programas = []

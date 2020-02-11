@@ -7,8 +7,11 @@ import { toast } from 'react-toastify';
 import api from '../../../services/api';
 
 // import { Container } from './styles';
+const secret = process.env.REACT_APP_KEY_SECRET_KEY_WITH_A_AUTHENTICATION;
 
-export default function EnviarBanner() {
+export default function EnviarBanner(props) {
+
+  const idAdm = props.match.params.id;
   const profile = useSelector(state => state.user.profile);
 
   const getUploadParams = async ({ file, meta }) => {
@@ -20,7 +23,12 @@ export default function EnviarBanner() {
 
       data.append('file', file);
 
-      await api.post(`banner/${profile.radio_id}/1`, data);
+      if(idAdm && profile.config === secret){
+        await api.post(`banner/${idAdm}/1`, data);
+      } else{
+        await api.post(`banner/${profile.radio_id}/1`, data);
+      }
+
       // const response = await api.get(`principal/${id}`);
 
       // const { imagens } = response.data;
@@ -43,7 +51,13 @@ export default function EnviarBanner() {
 
       data.append('file', file);
 
-      await api.post(`banner/${profile.radio_id}/2`, data);
+      if(idAdm && profile.config === secret){
+        await api.post(`banner/${idAdm}/2`, data);
+
+      } else {
+        await api.post(`banner/${profile.radio_id}/2`, data);
+
+      }
       // const response = await api.get(`principal/${id}`);
 
       // const { imagens } = response.data;
@@ -81,9 +95,18 @@ export default function EnviarBanner() {
 
   async function relationIconInRadio(iconId) {
     try {
-      await api.put(`radio/${profile.radio_id}`, {
-        icon_id: iconId
-      });
+
+      if(idAdm && profile.config === secret){
+        await api.put(`radio/${idAdm}`, {
+          icon_id: iconId
+        });
+
+      } else {
+        await api.put(`radio/${profile.radio_id}`, {
+          icon_id: iconId
+        });
+      }
+      
       toast.success('Icone Cadastrado com sucesso');
 
       return true;
