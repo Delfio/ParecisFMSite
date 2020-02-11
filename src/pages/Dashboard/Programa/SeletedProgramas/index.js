@@ -10,6 +10,7 @@ export default function SelectProgramas(props) {
   useEffect(() => {
     loadTitles();
     loadProgramas();
+
   }, [loadProgramas, loadTitles, props])
 
   const titles = []

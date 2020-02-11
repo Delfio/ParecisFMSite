@@ -34,6 +34,7 @@ import Contato from '../pages/Dashboard/Radio/Contato';
 /* User / locutor */
 import AllUsers from '../pages/Dashboard/UserLocutores/TodosOsUsuarios';
 import AllLocutores from '../pages/Dashboard/UserLocutores/TodosOsLocutores';
+import CadUser from '../pages/Dashboard/UserLocutores/CadastrarUsuario';
 
 import Profile from '../pages/Dashboard/UserLocutores/Profile';
 
@@ -76,7 +77,8 @@ export default function routes() {
       
       <Route path="/allUsers" exact isPrivate component={AllUsers}/>
       <Route path="/allLocutores" exact isPrivate component={AllLocutores}/>
-
+      <Route path="/admin/CadUser" exact isPrivate component={CadUser}/>
+      
       <Route path="/attPrograma/:id" exact isPrivate component={AttPrograma}/>
       <Route path="/attProgramacao/:id" exact isPrivate component={AttProgramation}/>
 

@@ -9,12 +9,16 @@ import { Link } from 'react-router-dom';
 
 const schema = Yup.object().shape({
   nome: Yup.string().required('Favor insira um nome'),
-  link: Yup.string().url('Insira uma URL válida').required('Favor insira um link')
+  link: Yup.string().url('Insira uma URL válida'),
+  descricao: Yup.string().required('Insira uma descrição')
 })
 
 export default function CadastrarPromocoes(props) {
   const profile = useSelector(state => state.user.profile);
-  const [promotions, setPromotions] = useState([])
+  const [promotions, setPromotions] = useState([]);
+  const [facebook, setFacebook] = useState(false);
+  const [whats, setWhats] = useState(false);
+  const [insta, setInsta] = useState(false);
 
   useEffect(() => {
     loadPromotions();
@@ -26,13 +30,20 @@ export default function CadastrarPromocoes(props) {
   }
 
   async function handleCadastrarPromotion(data){
-    const response = await api.post(`/promocao/${profile.radio_id}`, {
-      ...data
-    });
-    const promocaoCadastrada = response.data;
-    toast.success('Promoção cadastrada com sucesso')
-    await props.history.push(`/cadImgPromotion/${promocaoCadastrada.id}`);
-
+    try {
+      const response = await api.post(`/promocao/${profile.radio_id}`, {
+        ...data,
+        facebook: facebook,
+        instagram: insta,
+        whatsapp: whats
+      });
+      const promocaoCadastrada = response.data;
+      toast.success('Promoção cadastrada com sucesso')
+      await props.history.push(`/cadImgPromotion/${promocaoCadastrada.id}`);
+    } catch (err) {
+      console.log(err.message)
+      toast.error('Ocorreu um erro, confira seus dados')
+    }
   };
 
   async function handlDelete(data){
@@ -66,8 +77,81 @@ export default function CadastrarPromocoes(props) {
               <label htmlFor="name">Link</label>
 
             </div>
-            <div className="col s12">
+            <div className="input-field col l12 s12">
+              <Input
+                name="descricao"
+                id="descricao"
+                type="text"
+                className="validate"
+                multiline
+                label="Descrição"
+              />
 
+            </div>
+            <div style={{marginTop: -8, marginBottom: 15, display: 'flex'}} className="col s12">
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingTop: 15,
+                }}
+                className="col s3">
+                <label>
+                  <Input
+                    value="1"
+                    name="destaque"
+                    id="destaque"
+                    type="checkbox"
+                    className="validate"
+                    checked={facebook === true}
+                    onChange={e =>  facebook === false ? setFacebook(true) : setFacebook(false)}
+                  />
+                  <span className="blue-text">Facebook</span>
+                </label>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingTop: 15,
+                }}
+                className="col s3">
+                <label>
+                  <Input
+                    value="1"
+                    name="destaque"
+                    id="destaque"
+                    type="checkbox"
+                    className="validate"
+                    checked={whats === true}
+                    onChange={e =>  whats === false ? setWhats(true) : setWhats(false)}
+                  />
+                  <span className="blue-text">whats</span>
+                </label>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingTop: 15,
+                }}
+                className="col s3">
+                <label>
+                  <Input
+                    value="1"
+                    name="destaque"
+                    id="destaque"
+                    type="checkbox"
+                    className="validate"
+                    checked={insta === true}
+                    onChange={e =>  insta === false ? setInsta(true) : setInsta(false)}
+                  />
+                  <span className="blue-text">whats</span>
+                </label>
+              </div>
             </div>
             <div className="col s12">
               <button style={{zIndex: 0}} className="btn waves-effect waves-light" type="submit" name="action">Cadastrar

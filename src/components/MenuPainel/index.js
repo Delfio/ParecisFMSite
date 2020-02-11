@@ -90,7 +90,7 @@ export default function MenuPainel() {
                   <Link to="/top3"> Top3 </Link>
                 </li>
                 <li>
-                  <Link to="/contato"> Contato </Link>
+                  <Link to="/contato"> Contatos </Link>
                 </li>
               </ul>
             </div>

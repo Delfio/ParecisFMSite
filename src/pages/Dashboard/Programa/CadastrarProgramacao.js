@@ -26,7 +26,6 @@ export default function CadastrarProgramacao() {
   useEffect(() => {
     loadLocutores();
     loadProgramas();
-
   }, [loadLocutores, loadProgramas]);
 
   const conteudo = [];
