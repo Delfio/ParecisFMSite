@@ -12,12 +12,13 @@ import Selected from '../Selected';
 const schema = Yup.object().shape({
   horarios: Yup.string(),
   dia: Yup.string(),
-  locutor: Yup.string(),
+  user: Yup.string(),
   programa: Yup.string(),
 })
 
 export default function AtualizarProgramation(props) {
-  const { id } = props.match.params
+  const { id } = props.match.params;
+  const [programacaoExists, setProgramacaoExsits] = useState({})
   // const [programations, setProgramations] = useState([])
 
   const profile = useSelector(state => state.user.profile);
@@ -25,8 +26,12 @@ export default function AtualizarProgramation(props) {
   useEffect(() => {
     loadLocutores();
     loadProgramas();
-    console.log('repetindo')
-  }, [loadLocutores, loadProgramas]);
+
+  }, [programacaoExists]);
+
+  useEffect(() => {
+    loadPrograma();
+  }, [])
 
   const conteudo = []
   const programa = []
@@ -80,23 +85,33 @@ export default function AtualizarProgramation(props) {
     { id: '22:00', title: '22:00' },
     { id: '23:00', title: '23:00' },
     { id: '24:00', title: '24:00' },
-  ]
+  ];
+
+  async function loadPrograma(){
+    const resposne = await api.get(`editProgramacao/${id}`);
+
+    setProgramacaoExsits(resposne.data);
+  }
 
   async function updateProgramation(data, { resetForm }){
     try {
 
       const { horarios } = data;
-      const horaFormatada = horarios.join(',');
-      const resplace = horaFormatada.replace(/[,]+/g, ' ');
+      // const horaFormatada = horarios.join(',');
+      const resplace = horarios.replace(/[,]+/g, ' ');
 
       await api.put(`programacaos/${id}`, {
-        ...data,
-        horario: resplace
+        user: data.user ? parseInt(data.user) : programacaoExists.user_id,
+        programa: data.programa ? parseInt(data.programa) : programacaoExists.programa_id,
+        dia: data.dia ? parseInt(data.dia) : programacaoExists.dia,
+        horario: resplace ? resplace : programacaoExists.horario,
+        radio_id: programacaoExists.radio_id
       });
 
       resetForm();
       toast.success('Programação Atualizada com sucesso')
     } catch(err){
+      console.log(err.message);
       toast.error('Algo deu errado')
     }
   }
@@ -106,7 +121,6 @@ export default function AtualizarProgramation(props) {
       <div className="row">
         <div style={{marginTop: 50}} className="col s12 m10 offset-m1 xl12 offset-xl1 left-align">
           <h3>Atualizar Programação</h3>
-
           <div className="row">
             <Form style={{color: 'red'}} schema={schema} onSubmit={updateProgramation}>
               <div className="row">
@@ -127,14 +141,14 @@ export default function AtualizarProgramation(props) {
                </div>
                <div className="col l6 s12">
                 <Selected 
-                    name="aaaa" 
+                    name="user" 
                     label="Selecione o Locutor Principal" 
                     options={conteudo}
                   />
                </div>
                <div className="col l6 s12">
                 <Selected 
-                    name="programa_id" 
+                    name="programa" 
                     label="Selecione o nome do Programa" 
                     options={programa}
                   />
