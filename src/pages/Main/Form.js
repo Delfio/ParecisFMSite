@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import * as Yup from 'yup';
 
 import logoSuaMusica from '../../assets/pecaSuaMusica.svg'

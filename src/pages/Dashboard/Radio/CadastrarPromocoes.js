@@ -99,8 +99,8 @@ export default function CadastrarPromocoes(props) {
                 <label>
                   <Input
                     value="1"
-                    name="destaque"
-                    id="destaque"
+                    name="face5"
+                    id="face5"
                     type="checkbox"
                     className="validate"
                     checked={facebook === true}
@@ -120,8 +120,8 @@ export default function CadastrarPromocoes(props) {
                 <label>
                   <Input
                     value="1"
-                    name="destaque"
-                    id="destaque"
+                    name="whats5"
+                    id="whats5"
                     type="checkbox"
                     className="validate"
                     checked={whats === true}
@@ -141,8 +141,8 @@ export default function CadastrarPromocoes(props) {
                 <label>
                   <Input
                     value="1"
-                    name="destaque"
-                    id="destaque"
+                    name="insta5"
+                    id="insta5"
                     type="checkbox"
                     className="validate"
                     checked={insta === true}

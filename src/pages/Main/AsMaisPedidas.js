@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 
-import api from '../../services/api'
+// import api from '../../services/api'
 
-import {toast} from 'react-toastify';
+// import {toast} from 'react-toastify';
 
 import { SectionIMG, Ul, OuvirButton } from './styles';
 import { Link } from 'react-router-dom';
@@ -10,19 +10,19 @@ import { Link } from 'react-router-dom';
 export default function AsMaisPedidas({top3, id: RadioID}) {
   const infos = top3;
 
-  const [date, setDate] = useState(new Date());
+  // const [date, setDate] = useState(new Date());
 
-  async function handleMussic(id) {
-    try {
-      const response = await api.post(`/musica/${RadioID}/${id}`, {
-        data_id: date
-      })
-      toast.success('Seu pedido foi enviado com sucesso')
-    } catch (err) {
-      toast.error('Ocorreu um problema!')
-      console.log(err)
-    }
-  };
+  // async function handleMussic(id) {
+  //   try {
+  //     const response = await api.post(`/musica/${RadioID}/${id}`, {
+  //       data_id: date
+  //     })
+  //     toast.success('Seu pedido foi enviado com sucesso')
+  //   } catch (err) {
+  //     toast.error('Ocorreu um problema!')
+  //     console.log(err)
+  //   }
+  // };
 
   return (
     <div className="row">

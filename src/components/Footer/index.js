@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Container } from './styles';
 
 import Bg from '../../assets/imgRodape-parecis.png'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 export default function Footer(props) {
   const [facebookLink, setFacebook] = useState(props.facebook)

@@ -25,7 +25,7 @@ export default function Table() {
       setProgramations(response.data);
       toast.success('Programação deletada com sucess')
     } catch(err){
-      toast.error('Aconteceu algo de errado')
+      toast.error('Listagem vázia')
     }
   }
 

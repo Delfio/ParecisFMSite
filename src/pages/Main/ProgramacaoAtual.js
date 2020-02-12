@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
-import bannerSite from '../../assets/MARY_GONÇALVES_MG_1343.JPG'
+// import { Link } from 'react-router-dom';
+// import bannerSite from '../../assets/MARY_GONÇALVES_MG_1343.JPG'
 import facebook from '../../assets/iconFace.svg'
 import instagram from '../../assets/iconInsta.svg'
 import wahts from '../../assets/iconWhats.svg'

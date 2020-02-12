@@ -27,14 +27,14 @@ export default function Inicial(props) {
     loadSelect()
   }, [])
 
-  async function handlePage(event){
+  // async function handlePage(event){
 
-    const {value} = event.target;
-    return (
+  //   const {value} = event.target;
+  //   return (
       
-      await props.history.push(`radio/${value}`)
-    )
-  }
+  //     await props.history.push(`radio/${value}`)
+  //   )
+  // }
 
   return (
     <Container>
