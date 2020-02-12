@@ -168,16 +168,20 @@ export const DivLocutor = styled.div`
   background-image: url(${props => props.bg});
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 20%;
 
   display: block;
   position: relative;
 
-  @media(min-width: 1680px) {
-    width: 500px;
-    height: 500px;
-    margin-top: 48px;
+  @media (min-width: 1800px) {
+    flex: 1 !important;
+    margin: 0;
+    padding: 0;
+    width: 450px;
+    height: 100% !important;
+    min-height: 600px;
   }
+
   &::after{
     content: ' ';
     width: 100%;
@@ -192,18 +196,12 @@ export const DivLocutor = styled.div`
 
 export const DivInfosLocutor = styled.div`
   width: 450px;
-  height: 450px;
+  min-height: 450px;
   display: block;
   position: relative;
-
+  height: 100% !important;
   z-index: 5;
   /* box-shadow: -3px 0px 15px rgba(0,0,0,0.8); */
-
-  @media(min-width: 1680px) {
-    margin-top: 45px;
-    width: 450px;
-    height: 450px;
-  }
 
   div {
     display: flex;
@@ -250,5 +248,14 @@ export const ButtonPlay = styled.button`
   }
   @media (max-width: 395px) {
     font-size: 2px;
+  }
+`;
+
+export const DivPrincipal = styled.div`
+  @media (min-width: 1800px) {
+    margin-top: 14vh;
+    height: 600px;
+    align-content: stretch;
+    flex: 1
   }
 `;

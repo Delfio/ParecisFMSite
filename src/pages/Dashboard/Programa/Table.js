@@ -15,7 +15,6 @@ export default function Table() {
 
   async function loadProgramacaoReferent(){
     const response = await api.get('programacaos');
-    console.log(response.data);
     setProgramations(response.data);
   }
 

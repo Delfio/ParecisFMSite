@@ -41,7 +41,6 @@ export default function CadastrarPromocoes(props) {
       toast.success('Promoção cadastrada com sucesso')
       await props.history.push(`/cadImgPromotion/${promocaoCadastrada.id}`);
     } catch (err) {
-      console.log(err.message)
       toast.error('Ocorreu um erro, confira seus dados')
     }
   };

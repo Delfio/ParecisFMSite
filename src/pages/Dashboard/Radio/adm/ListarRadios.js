@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import api from '../../../../services/api';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 // import { Container } from './styles';
 
@@ -23,7 +24,13 @@ export default function ListarRadios() {
   };
 
   async function handlDelete(data){
-
+    try {
+      await api.delete(`radio/${data}`)
+      toast.success('Radio deletada com sucesso')
+      loadRadios();
+    } catch (err) {
+      toast.error('Houve um erro ao deletar a rádio')
+    }
   }
 
   return (

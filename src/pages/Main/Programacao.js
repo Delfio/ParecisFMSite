@@ -60,8 +60,8 @@ export default function ProgramacaoSemanal({id: RadioID}) {
           </div>
          <div className="col s12">
           <div className="container">
-              <center>
-                <h5>Observação: </h5>
+              <div style={{marginLeft: '2%'}} className="left">
+                <h5 style={{marginBottom: -10}}>Observação: </h5>
                 {programacao.length >=1 ? programacao.map(el => (
                   el.obs ? (
                     <div key={el.id} className="col s12">
@@ -72,7 +72,7 @@ export default function ProgramacaoSemanal({id: RadioID}) {
                     </div>
                   ) : null
                 )): null}
-              </center>
+              </div>
           </div>
          </div>
         </div>

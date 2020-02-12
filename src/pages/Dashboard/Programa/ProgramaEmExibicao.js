@@ -4,7 +4,8 @@ import {Form, Input} from '@rocketseat/unform';
 import api from '../../../services/api';
 import { toast } from 'react-toastify';
 import * as Yup from 'yup'
-
+import Table from './TableExibicao';
+import TableTitles from './TableTitlesEmExibicao'
 // import { Container } from './styles';
 import CreateProgramaEmExibicao from './SeletedProgramas'
 
@@ -151,12 +152,16 @@ export default function ProgramaEmExibicao() {
                   <h5>{el.nome} : </h5>
                   <p className="red-text" style={{fontWeight: 900, marginTop: -10}}>{el.obs? 'Especial' : null}</p>
                   {el.programa.map(el => (
-                    <p>{el.horario} : {el.programa ? el.programa.nome: null}</p>
+                    <p key={el.id}>{el.horario} : {el.programa ? el.programa.nome: null}</p>
                   ))}
                 </li>
               ))}
             </ul>
           </div>
+          <br/>
+          <Table id={profile.radio_id} props={programacoes} />
+          <br/>
+          <TableTitles id={profile.radio_id} props={programacoes} /> 
         </div>
       </div>
     </div>

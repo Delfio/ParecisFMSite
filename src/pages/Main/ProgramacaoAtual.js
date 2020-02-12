@@ -7,7 +7,7 @@ import wahts from '../../assets/iconWhats.svg'
 
 import history from '../../services/history'
 
-import { DivLocutor, DivInfosLocutor, DivInfos, Button } from './styles';
+import { DivLocutor, DivInfosLocutor, DivInfos, Button, DivPrincipal } from './styles';
 
 export default function ProgramacaoAtual(props) {
 
@@ -49,7 +49,7 @@ export default function ProgramacaoAtual(props) {
   return (
     <div style={{marginTop: -5}} className="row grey darken-4">
       <audio id="playerAudio" src={link? `${link}`: null}></audio>
-      <div style={{flex: 1, display: 'block', padding: 0}} className="col s12">
+      <DivPrincipal style={{flex: 1, display: 'block', padding: 0, top: '0 !important', position: 'relative'}} className="col s12">
         <DivLocutor 
           bg={
             programacaoAtual ? 
@@ -128,7 +128,7 @@ export default function ProgramacaoAtual(props) {
             </div>
           </DivInfos>
         </DivInfosLocutor>
-      </div>
+      </DivPrincipal>
     </div>
   );
 }

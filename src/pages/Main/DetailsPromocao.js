@@ -84,21 +84,27 @@ export default function DetailsPromocao(props) {
             </center>
             <div className="col s12">
               {promocao.descricao}
+
+              {promocao.link ? (
+                <div style={{marginTop: 15}} className="col s12 center">
+                  <a href={promocao.link}> Confira mais em </a>
+                </div>
+              ) : null}
             </div>
             <div style={{marginTop: 10}} className="col s12">
               <h5>#Participe</h5>
               <ul className="center-align">
-                <li className="col s4">
+                <li className={promocao.whatsapp? `col s4`: 'hide'}>
                   <a target="_blank" href={promocao.whatsapp? promocao.radio.whatsapp : null}>
                     <img style={{width: '100%', maxWidth: 50}} src={whatsButton} alt=""/>
                   </a>
                 </li>
-                <li className="col s4">
+                <li className={promocao.facebook? `col s4`: 'hide'}>
                   <a target="_blank" href={promocao.facebook? promocao.radio.facebook : null}>
                     <img style={{width: '100%', maxWidth: 50}} src={facebookButton} alt=""/>
                   </a>
                 </li>
-                <li className="col s4">
+                <li className={promocao.instagram? `col s4`: 'hide'}>
                   <a target="_blank" href={promocao.instagram? promocao.radio.instagram : null}>
                     <img style={{width: '100%', maxWidth: 50}} src={instaButton} alt=""/>
                   </a>

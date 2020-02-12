@@ -23,6 +23,7 @@ export default function Main(props) {
   //banner
   const [banner1, setBanner1] = useState([]);
   const [banner2, setBanner2] = useState([]);
+  const [icon, setIcon] = useState({});
   //links
   const[link, setLink] = useState({});
   const[facebook, setFacebook] = useState({});
@@ -40,7 +41,7 @@ export default function Main(props) {
       try {
         const response = await api.get(`/principal/${id}`, {
           params: {data: date}
-        })
+        });
     
         const {data} = response;
   
@@ -48,6 +49,7 @@ export default function Main(props) {
           setFacebook(el.facebook)
           setInstagram(el.instagram)
           setWhats(el.whatsapp)
+          setIcon(el.icon)
           setName(el.name)
           setCidade(el.cidade ? el.cidade.nome : null)
           setBanner1(el.banner1)
@@ -65,7 +67,7 @@ export default function Main(props) {
 
   return (
     <>
-      <Menu link={link} />
+      <Menu icon={icon} link={link} />
       <ButtonParecis />
       <Banner banner1={banner1} banner2={banner2} />
       <Radio link={link}/>

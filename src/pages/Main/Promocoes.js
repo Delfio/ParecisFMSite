@@ -33,7 +33,18 @@ export default function Promocoes(props) {
     speed: 500,
     slidesToShow: conteudo.length <= 2 ? 1 : conteudo.length === 3 ? 2: conteudo.length > 3 ? 3 : 1,
     slidesToScroll: 1,
-    adaptiveHeight: true,
+    // adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
+
+  var settingsMobo = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    // adaptiveHeight: true,
     autoplay: true,
     autoplaySpeed: 2000,
   };
@@ -41,7 +52,7 @@ export default function Promocoes(props) {
   return (
     <>
     <div className="row grey lighten-5">
-      <div id="promocoes" className={`container`}>
+      {/* <div id="promocoes" className={`container hide-on-med-and-down`}>
         <h4 style={{fontWeight: 900, padding: 15}} className="center-align grey-text">Promoções</h4>
         {conteudo? (
           <Slider className="col s12" {...settings}>
@@ -49,6 +60,23 @@ export default function Promocoes(props) {
               <a key={el.id} href={`/promocao/${el.id}`}>
                 <div  className="col s3 center-align">
                   <img style={{maxWidth: 300}} src={el.imagem ? el.imagem.url : null} className="responsive-img" alt="imgPromocao"/>
+                </div>
+              </a>
+            ))}
+          </Slider>
+        ): null}
+      </div> */}
+
+      {/* Mobile */}
+
+      <div id="promocoes" className={`container`}>
+        <h4 style={{fontWeight: 900, padding: 15}} className="center-align grey-text">Promoções</h4>
+        {conteudo? (
+          <Slider className="col s12" {...settingsMobo}>
+            {conteudo.map(el => (
+              <a key={el.id} href={`/promocao/${el.id}`}>
+                <div  className="col s12 center-align">
+                  <img style={{height: '100%', width: '100%'}} src={el.imagem ? el.imagem.url : null} className="responsive-img" alt="imgPromocao"/>
                 </div>
               </a>
             ))}

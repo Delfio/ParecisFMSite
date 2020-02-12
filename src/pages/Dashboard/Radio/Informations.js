@@ -26,7 +26,6 @@ export default function Informations(props) {
 
   useEffect(() => {
     if(idAdm){
-      console.log(idAdm)
       if(profile.config !== secret){
         loadInfosRadio(profile.radio_id);
       }else {
@@ -62,6 +61,10 @@ export default function Informations(props) {
             ...data
            })
         }
+      }else {
+        await api.put(`/radio/${profile.radio_id}`, {
+          ...data
+         })
       }
 
 

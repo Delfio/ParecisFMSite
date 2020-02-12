@@ -111,8 +111,8 @@ export default function AtualizarProgramation(props) {
       resetForm();
       toast.success('Programação Atualizada com sucesso')
     } catch(err){
-      console.log(err.message);
-      toast.error('Algo deu errado')
+
+      toast.error('Algo deu errado, verifique seus dados')
     }
   }
 

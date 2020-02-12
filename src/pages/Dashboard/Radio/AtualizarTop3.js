@@ -9,7 +9,8 @@ import { toast } from 'react-toastify';
 // import { Container } from './styles';
 const schema = Yup.object().shape({
   artista: Yup.string().required('Favor insira um nome'),
-  musica: Yup.string().required('Favor insira o nome da música')
+  musica: Yup.string().required('Favor insira o nome da música'),
+  link: Yup.string().url('Insira uma URL válida').required('Insira o link de incorporação')
 })
 
 export default function AtualizarTop3(props) {
@@ -87,6 +88,15 @@ export default function AtualizarTop3(props) {
             <div className="input-field col l6 s6">
               <Input
                 name="musica"
+                id="link"
+                type="text"
+                className="validate"
+              />
+
+            </div>
+            <div className="input-field col l12 s6">
+              <Input
+                name="link"
                 id="link"
                 type="text"
                 className="validate"

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Logo from '../../assets/logoParecis.svg'
 import M from 'materialize-css/dist/js/materialize.min.js';
@@ -7,6 +7,12 @@ import { Container } from './styles';
 
 
 export default function MenuDefault(props) {
+
+  const [icons, setIcons] = useState({});
+
+  useEffect(() => {
+    setIcons(props.icon)
+  }, [props])
 
   useEffect(()=>{
     var elems = document.querySelectorAll('.sidenav');
@@ -35,9 +41,10 @@ export default function MenuDefault(props) {
         <div className="container">
           <a href="/" className="brand-logo">
             <div className="col s12">
-              <img className="responsive-img" style={{width: '100%', height: '100%', maxWidth: '80px', maxHeight: '150px', marginTop: 6}} src={Logo} alt=""/>
+              <img className="responsive-img" style={{width: '100%', height: '100%', maxWidth: '80px', maxHeight: '150px', marginTop: 6}} src={icons? icons.url: Logo} alt=""/>
             </div>
           </a>
+
         </div>
         <ul style={{marginRight: '4.5em'}} id="nav-mobile" className="right hide-on-med-and-down">
           <li style={{marginRight: '1.5rem'}}>
@@ -52,10 +59,10 @@ export default function MenuDefault(props) {
           <li style={{marginRight: '0.5em'}}><a href="#programacao">PROGRAMAÇÃO</a></li>
           <li><a href="#contatos">CONTATOS</a></li>
         </ul>
-        <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a>
+        {/* <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
       </div>
     </Container>
-    <ul id="slide-out" className="sidenav">
+    {/* <ul id="slide-out" className="sidenav">
       <li>
         <div className="user-view">
           <div className="background red darken-4">
@@ -80,7 +87,7 @@ export default function MenuDefault(props) {
       <li>
         <a className="waves-effect" href="#!">Third Link With Waves</a>
       </li>
-    </ul>
+    </ul> */}
     </>
   );
 }

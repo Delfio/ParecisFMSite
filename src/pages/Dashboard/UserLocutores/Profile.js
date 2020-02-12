@@ -21,7 +21,6 @@ export default function Profile() {
     const response = await api.get(`users/${profile.id}`);
 
     setPerfil(response.data);
-    console.log(response.data);
   };
 
   async function getUploadParams({meta, file}){
@@ -63,7 +62,7 @@ export default function Profile() {
 
           <center style={{marginTop: 35}}>
             <img style={{border: '2px solid #eee', maxWidth: 450, maxHeight: 450}} 
-              src={profile.avatar? profile.avatar.url : 'https://api.adorable.io/avatars/285/abott@adorable.png'}
+              src={perfil.avatar? perfil.avatar.url : 'https://api.adorable.io/avatars/285/abott@adorable.png'}
              alt="ProfileFOTO" 
              className="circle responsive-img" />
           </center>

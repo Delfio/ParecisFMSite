@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Logo from '../../assets/logoParecis.svg'
+import Logo from '../../assets/logoParecis.png'
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 import { Container, Div, DivInput, Li } from './styles';
@@ -35,8 +35,6 @@ export default function Inicial(props) {
       await props.history.push(`radio/${value}`)
     )
   }
-
-  console.log(radio)
 
   return (
     <Container>

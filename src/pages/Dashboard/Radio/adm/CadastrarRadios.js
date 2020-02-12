@@ -47,7 +47,6 @@ export default function CadastrarRadios() {
 
       toast.success('Radio cadastrada com sucesso')
     } catch(err) {
-      console.log(err.message)
       toast.error('Ocorreu um erro ao cadastrar')
     }
   }

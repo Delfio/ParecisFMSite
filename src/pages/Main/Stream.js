@@ -12,7 +12,7 @@ export default function Stream() {
           <h3 
           className="red-text hide-on-small-only"
           style={{display: 'flex', alignItems: 'flex-end', justifyContent: 'center'}}
-          >CÂMERA AO VIVO 
+          >ESTÚDIO AO VIVO
             <i className="medium material-icons">live_tv</i>
           </h3>
 

@@ -22,6 +22,7 @@ import ListarPrograma from '../pages/Dashboard/Programa/ListProgramas';
 import ListarProgramacao from '../pages/Dashboard/Programa/ListProgramacao';
 
 import ProgramaEmExibicao from '../pages/Dashboard/Programa/ProgramaEmExibicao';
+import AttTitlesProgramacaoEmExibicao from '../pages/Dashboard/Programa/AttTitles';
 
 /* Radio */
 import InfosRadio from '../pages/Dashboard/Radio/Informations';
@@ -107,6 +108,8 @@ export default function routes() {
 
       <Route path="/admin/CadCity" exact isPrivate component={CadCity}/>
       <Route path="/attCitys/:id" exact isPrivate component={AttCity}/>
+
+      <Route path="/attTitle/:id" exact isPrivate component={AttTitlesProgramacaoEmExibicao}/>
 
       <Route path="/profile" exact isPrivate component={Profile}/>
       

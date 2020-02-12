@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { Container } from './styles';
-import Microfone from '../../assets/MicrofonePARECISFM2.svg'
+import MicrofonePng from '../../assets/MicrofoneParecisFM.png'
 
 export default function ButtonParecis() {
   return (
-    <Container className="container">
+    <Container className="container hide-on-small-only">
       <div className="col s12">
-        <img src={Microfone} alt="Microfone Parecis"/>
+        <img style={{width: '100%'}} src={MicrofonePng} alt="Microfone Parecis"/>
       </div>
     </Container>
   );

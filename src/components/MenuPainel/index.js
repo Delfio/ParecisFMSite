@@ -95,7 +95,7 @@ export default function MenuPainel() {
               </ul>
             </div>
         </li>
-        <li>
+        {/* <li>
           <div className="collapsible-header waves-effect waves-teal">
             <i className="material-icons">whatshot</i>Usuários / locutores</div>
             <div className="collapsible-body">
@@ -108,7 +108,8 @@ export default function MenuPainel() {
                 </li>
               </ul>
             </div>
-        </li>
+        </li> */}
+      
       </ul>
     </li>
     <li>
