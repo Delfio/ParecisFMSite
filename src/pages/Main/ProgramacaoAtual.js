@@ -101,7 +101,7 @@ export default function ProgramacaoAtual(props) {
               </h3>
               <h5 style={{padding: 0, marginTop: -10}} className="center-align white-text">
                 <span style={{fontWeight: 700, color: '#ffc107'}}>
-                  {programacaoAtual ? programacaoAtual.locutor? String(programacaoAtual.locutor.name): null: 'SEI LÁ' }
+                  {programacaoAtual ? programacaoAtual.locutor? String(programacaoAtual.locutor.name): null: 'DO SEU JEITO' }
                 </span> 
               </h5>
             </div>

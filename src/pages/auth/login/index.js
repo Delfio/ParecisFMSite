@@ -6,7 +6,7 @@ import { signInRequest } from '../../../store/modules/auth/actions'
 
 import { Form, Input } from '@rocketseat/unform';
 
-import Logo from '../../../assets/logoParecis.svg'
+import Logo from '../../../assets/logoParecis.png'
 
 // import { Container } from './styles';
 
