@@ -24,21 +24,27 @@ const schema = Yup.object().shape({
 export default function PecaSuaMusica({id}) {
 
   const[tipo, setTipo] = useState('feminino');
+  const [pedido, setPedido] = useState(false);
 
   async function handleSubmit(data){
     try {
-      await api.post(`/musica/${id}`, {
-        nome: data.nome,
-        idade: data.idade,
-        telefone: data.telefone,
-        musica: data.musica,
-        artista: data.artista,
-        genero: tipo,
-        data: new Date()
-      });
-      toast.success('Seu pedido foi enviado com sucesso!')
+      if(!pedido){
+        await api.post(`/musica/${id}`, {
+          nome: data.nome,
+          idade: data.idade,
+          telefone: data.telefone,
+          musica: data.musica,
+          artista: data.artista,
+          genero: tipo,
+          data: new Date()
+        });
+        setPedido(true);
+        toast.success('Seu pedido foi enviado com sucesso!')
+      } else {
+        toast.error('Você já realizou um pedido!')
+      }
     } catch (err) {
-      toast.error('Ocorreu um erro')
+      toast.success('Recebemos seu pedido. Não temos programação online agora! mas assim que retornarmos atenderemos')
     }
   }
 
