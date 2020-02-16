@@ -7,7 +7,7 @@ export default function ButtonParecis() {
   return (
     <Container className="container hide-on-small-only">
       <div className="col s12">
-        <img style={{width: '100%'}} src={MicrofonePng} alt="Microfone Parecis"/>
+        <img style={{width: '80%', marginLeft: 25}} src={MicrofonePng} alt="Microfone Parecis"/>
       </div>
     </Container>
   );
