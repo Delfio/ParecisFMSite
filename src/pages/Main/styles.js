@@ -1,19 +1,19 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import { Input as RocketInput } from '@rocketseat/unform';
+import { Input as RocketInput } from "@rocketseat/unform";
 
 export const Container = styled.div`
   height: 100%;
   display: flex !important;
-  align-items: 'center' !important;
-  @media(min-width: 1680px) {
+  align-items: "center" !important;
+  @media (min-width: 1680px) {
     margin-top: 35px;
   }
 `;
 
 export const DivBanner = styled.div`
   @media (max-width: 760px) {
-    background-image: url(${props=> props.bg});
+    background-image: url(${props => props.bg});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -35,12 +35,11 @@ export const Img = styled.img`
 `;
 
 export const DivForm = styled.div`
-
   @media (min-width: 1690px) {
     margin-top: 5%;
   }
 
-  label{
+  label {
     font-size: 1em;
   }
 `;
@@ -49,7 +48,7 @@ export const Input = styled(RocketInput)`
   background-color: #e8e8e8 !important;
   border-radius: 5px !important;
   box-shadow: 0 2px #9e9e9e !important;
-  &::placeholder{
+  &::placeholder {
     color: #9e9e9e;
     margin-left: 25px !important;
   }
@@ -59,19 +58,17 @@ export const Button = styled.button`
   margin-top: 3%;
   border-radius: 7px;
 
-  &:hover{
-    background-color: #9e1e24  !important;
-    box-shadow: 0 2px 2px 0 rgba(80,11,11, 0.8);
+  &:hover {
+    background-color: #9e1e24 !important;
+    box-shadow: 0 2px 2px 0 rgba(80, 11, 11, 0.8);
   }
-
 `;
 
 export const SectionIMG = styled.section`
-  
   display: flex;
   position: relative;
   justify-content: space-around;
-  background-image: url(${props=> props.bg}) !important;
+  background-image: url(${props => props.bg}) !important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -91,45 +88,42 @@ export const SectionIMG = styled.section`
       margin-top: -5px;
       color: white;
     }
-    h5{
+    h5 {
       font-weight: 600;
     }
   }
-
 `;
 
 export const Ul = styled.ul`
   li {
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     @media (max-width: 900px) {
       margin-bottom: 15px;
     }
-    &:hover{
+    &:hover {
       transform: scale(1.02);
     }
   }
-  button{
+  button {
     text-align: center;
     margin-top: -5%;
     width: 70%;
     height: 3em;
     border-radius: 7px;
-    box-shadow: 0 2px 2px 0 rgba(80,11,11, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(80, 11, 11, 0.2);
   }
 `;
 
 export const OuvirButton = styled.button`
-  &:hover{
-    background-color: #9e1e24  !important;
-    box-shadow: 0 2px 2px 0 rgba(80,11,11, 0.9);
+  &:hover {
+    background-color: #9e1e24 !important;
+    box-shadow: 0 2px 2px 0 rgba(80, 11, 11, 0.9);
   }
 `;
 
 export const Programacao = styled.div`
-
   background-color: #ffeb3b;
-
-`
+`;
 
 export const UlProgramacao = styled.ul`
   /* border-right: solid 3px #000; */
@@ -140,10 +134,9 @@ export const UlProgramacao = styled.ul`
 
   @media (max-width: 900px) {
     border-right: none;
-    border-bottom: solid 3px rgba(0,0,0,0.2);
+    border-bottom: solid 3px rgba(0, 0, 0, 0.2);
   }
-  div{
-
+  div {
   }
   li {
     margin-bottom: 18px;
@@ -152,81 +145,28 @@ export const UlProgramacao = styled.ul`
       font-size: 15px;
       margin-bottom: 15px;
     }
-    
-    p{
-      margin: 0
+
+    p {
+      margin: 0;
     }
   }
-
 `;
 
 export const DivLocutor = styled.div`
-  flex: 1;
-  width: 450px;
-  height: 450px;
-  min-height: 100%;
+  /* width: 250px; */
+  height: 180px;
   background-image: url(${props => props.bg});
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 20%;
+  background-position: center;
 
-  display: block;
-  position: relative;
-
-  @media (min-width: 1800px) {
-    flex: 1 !important;
-    margin: 0;
-    padding: 0;
-    width: 450px;
-    height: 100% !important;
-    min-height: 600px;
-  }
-
-  &::after{
-    content: ' ';
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    position: absolute;
-    z-index: 25;
-    background: linear-gradient(to right, rgba(24,24,24,0) 50%, #181818 100%);
-  }
+  border-radius: 50%;
 `;
 
-export const DivInfosLocutor = styled.div`
-  width: 450px;
-  min-height: 450px;
-  display: block;
-  position: relative;
-  height: 100% !important;
-  z-index: 5;
-  /* box-shadow: -3px 0px 15px rgba(0,0,0,0.8); */
-
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  h3 {
-    font-weight: 200;
-  }
-
-  h4{
-    font-weight: 600;
-    color: #ff9b00;
-    font-size: 55px;
-  }
-
-  /* background-image: linear-gradient(to top right, rgba(0,0,0), rgba(0,0,0)); */
-
-`;
+export const DivInfosLocutor = styled.div``;
 
 export const DivInfos = styled.div`
-
-  border-top: solid 2px rgba(255,255,255, 0.1);
-
+  border-top: solid 2px rgba(255, 255, 255, 0.1);
 `;
 
 export const ButtonPlay = styled.button`
@@ -237,14 +177,14 @@ export const ButtonPlay = styled.button`
   cursor: pointer;
   border-radius: 7px;
   box-shadow: 0 5px #891a1f;
-  i{
+  i {
     display: flex;
     position: top;
-    margin-top: -13px
+    margin-top: -13px;
   }
-  &:hover{
+  &:hover {
     color: #e5e5e5;
-    background-color: #86181d; 
+    background-color: #86181d;
   }
   @media (max-width: 395px) {
     font-size: 2px;
@@ -256,6 +196,6 @@ export const DivPrincipal = styled.div`
     margin-top: 14vh;
     height: 600px;
     align-content: stretch;
-    flex: 1
+    flex: 1;
   }
 `;
