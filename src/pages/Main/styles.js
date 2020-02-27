@@ -154,7 +154,7 @@ export const UlProgramacao = styled.ul`
 
 export const DivLocutor = styled.div`
   /* width: 250px; */
-  height: 20vh;
+  height: 27vh;
   background-image: url(${props => props.bg});
   background-size: cover;
   background-repeat: no-repeat;
