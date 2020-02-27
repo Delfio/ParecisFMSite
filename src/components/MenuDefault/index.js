@@ -1,68 +1,97 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import Logo from '../../assets/logoParecis.png'
-import M from 'materialize-css/dist/js/materialize.min.js';
+import Logo from "../../assets/logoParecis.png";
+import M from "materialize-css/dist/js/materialize.min.js";
 
-import { Container } from './styles';
-
+import { Container, Button } from "./styles";
 
 export default function MenuDefault(props) {
-
   const [icons, setIcons] = useState({});
+  const [link, setLink] = useState({});
 
   useEffect(() => {
-    setIcons(props.icon)
-  }, [props])
+    setIcons(props.icon);
+    setLink(props.link);
+  }, [props]);
 
-  useEffect(()=>{
-    var elems = document.querySelectorAll('.sidenav');
+  useEffect(() => {
+    var elems = document.querySelectorAll(".sidenav");
     M.Sidenav.init(elems, {});
-  }, [])
+  }, []);
 
-  // const [play, setPlay] = useState(false);
+  const [play, setPlay] = useState(false);
 
-  // function playAudio(){
-  //   var x = document.getElementById("player");
-  //   if(!play){
-  //     x.play()
-  //     setPlay(true)
-  //   }else{
-  //     x.pause()
-  //     setPlay(false)
-  //   }
-
-  // }
+  function playAudio() {
+    var x = document.getElementById("player");
+    if (!play) {
+      x.play();
+      setPlay(true);
+    } else {
+      x.pause();
+      setPlay(false);
+    }
+  }
 
   return (
     <>
-    <Container>
-      <div className="nav-wrapper">
-        {/* <audio id="player" src="http://live.hunter.fm/live"></audio> */}
-        <div className="container">
-          <a href="/" className="brand-logo">
-            <div className="col s12">
-              <img className="responsive-img" style={{width: '100%', height: '100%', maxWidth: '80px', maxHeight: '150px', marginTop: 6}} src={icons? icons.url: Logo} alt=""/>
-            </div>
-          </a>
-
+      <Container>
+        <div className="nav-wrapper">
+          <audio id="player" src={link}></audio>
+          <div className="container">
+            <a href="/" className="brand-logo">
+              <div className="col s12">
+                <img
+                  className="responsive-img"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    maxWidth: "80px",
+                    maxHeight: "150px",
+                    marginTop: 6
+                  }}
+                  src={icons ? icons.url : Logo}
+                  alt=""
+                />
+              </div>
+            </a>
+          </div>
+          <ul
+            style={{ marginRight: "4.5em" }}
+            id="nav-mobile"
+            className="right hide-on-med-and-down"
+          >
+            <li style={{ marginRight: "1.5rem" }}>
+              <Button
+                title={play ? "Pausar" : "Play"}
+                className="btn waves-effect waves-light"
+                onClick={playAudio}
+              >
+                AO VIVO
+                <i className="material-icons right">
+                  {play ? "pause" : "play_arrow"}
+                </i>
+              </Button>
+            </li>
+            <li style={{ marginRight: "0.5em" }}>
+              <a href="#suamusica">PEÇA SUA MÚSICA</a>
+            </li>
+            <li style={{ marginRight: "0.5em" }}>
+              <a href="#maispedidas">AS MAIS PEDIDAS</a>
+            </li>
+            <li style={{ marginRight: "0.5em" }}>
+              <a href="#promocoes">PROMOÇÕES</a>
+            </li>
+            <li style={{ marginRight: "0.5em" }}>
+              <a href="#programacao">PROGRAMAÇÃO</a>
+            </li>
+            <li>
+              <a href="#contatos">CONTATOS</a>
+            </li>
+          </ul>
+          {/* <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
         </div>
-        <ul style={{marginRight: '4.5em'}} id="nav-mobile" className="right hide-on-med-and-down">
-          <li style={{marginRight: '1.5rem'}}>
-            {/* <Button title={play? 'Pausar' : 'Play'} className="btn waves-effect waves-light" onClick={playAudio}>
-              AO VIVO
-              <i className="material-icons right">{play? 'pause' : 'play_arrow'}</i>
-            </Button> */}
-          </li>
-          <li style={{marginRight: '0.5em'}}><a href="#suamusica">PEÇA SUA MÚSICA</a></li>
-          <li style={{marginRight: '0.5em'}}><a href="#maispedidas">AS MAIS PEDIDAS</a></li>
-          <li style={{marginRight: '0.5em'}}><a href="#promocoes">PROMOÇÕES</a></li>
-          <li style={{marginRight: '0.5em'}}><a href="#programacao">PROGRAMAÇÃO</a></li>
-          <li><a href="#contatos">CONTATOS</a></li>
-        </ul>
-        {/* <a href="#" data-target="slide-out" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
-      </div>
-    </Container>
-    {/* <ul id="slide-out" className="sidenav">
+      </Container>
+      {/* <ul id="slide-out" className="sidenav">
       <li>
         <div className="user-view">
           <div className="background red darken-4">

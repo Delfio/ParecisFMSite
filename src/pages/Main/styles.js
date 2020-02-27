@@ -163,7 +163,11 @@ export const DivLocutor = styled.div`
   border-radius: 50%;
 
   @media (min-width: 1680px) {
-    height: 27vh;
+    height: 27vh !important;
+  }
+
+  @media (max-width: 1024px) {
+    height: 25vh !important;
   }
 `;
 
@@ -174,6 +178,30 @@ export const DivInfosLocutor = styled.div`
 
   @media (min-width: 1680px) {
     margin-left: -50px !important;
+  }
+`;
+
+export const DivInfosAoVivo = styled.div`
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-right: 150px !important;
+
+  @media (max-width: 1024px) {
+    margin-right: 0 !important;
+
+    h5 {
+      margin-left: 50px !important;
+    }
+  }
+`;
+
+export const DivInfosNomePrograma = styled.div`
+  @media (max-width: 1024px) {
+    margin-right: 0 !important;
+
+    h5 {
+      margin-left: 50px !important;
+    }
   }
 `;
 
