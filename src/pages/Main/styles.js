@@ -154,16 +154,28 @@ export const UlProgramacao = styled.ul`
 
 export const DivLocutor = styled.div`
   /* width: 250px; */
-  height: 180px;
+  height: 20vh;
   background-image: url(${props => props.bg});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 
   border-radius: 50%;
+
+  @media (min-width: 1680px) {
+    height: 27vh;
+  }
 `;
 
-export const DivInfosLocutor = styled.div``;
+export const DivInfosLocutor = styled.div`
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-left: -20px !important;
+
+  @media (min-width: 1680px) {
+    margin-left: -50px !important;
+  }
+`;
 
 export const DivInfos = styled.div`
   border-top: solid 2px rgba(255, 255, 255, 0.1);
