@@ -165,7 +165,7 @@ export default function EnviarBanner(props) {
             inputContent="Selecione ou arraste o icone"
             submitButtonContent="Enviar"
             accept="image/*"
-            maxSizeBytes={4048 * 4048}
+            // maxSizeBytes={4048 * 4048}
             maxFiles={1}
           />
         </div>
