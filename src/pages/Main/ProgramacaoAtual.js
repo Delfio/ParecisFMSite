@@ -13,6 +13,7 @@ export default function ProgramacaoAtual(props) {
 
   useEffect(() => {
     setProgramaAtual(props.programacao[0]);
+    console.log(programaAtual);
   }, [props]);
 
   return (

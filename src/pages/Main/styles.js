@@ -71,7 +71,7 @@ export const SectionIMG = styled.section`
   background-image: url(${props => props.bg}) !important;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 20%;
   width: 100%;
   height: 310px;
 
@@ -168,7 +168,7 @@ export const DivLocutor = styled.div`
   }
 
   @media (max-width: 1024px) {
-    height: 25vh !important;
+    height: 27vh !important;
   }
 `;
 
