@@ -22,7 +22,7 @@ export default function CadastrarPromocoes(props) {
 
   useEffect(() => {
     loadPromotions();
-  }, [loadPromotions]);
+  }, []);
 
   async function loadPromotions() {
     const response = await api.get(`promocao/${profile.radio_id}`);
