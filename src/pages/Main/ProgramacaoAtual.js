@@ -229,7 +229,7 @@ export default function ProgramacaoAtual(props) {
           </div>
         </>
       ) : (
-        <center style={{ marginTop: 25 }}>
+        <center style={{ marginTop: 60 }}>
           <h4 className="red-text">A sua Rádio do seu Jeito!</h4>
         </center>
       )}
