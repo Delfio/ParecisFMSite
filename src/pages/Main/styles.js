@@ -52,6 +52,12 @@ export const Input = styled(RocketInput)`
     color: #9e9e9e;
     margin-left: 25px !important;
   }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 export const Button = styled.button`
