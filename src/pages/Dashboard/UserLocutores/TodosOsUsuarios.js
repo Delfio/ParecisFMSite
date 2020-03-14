@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import api from '../../../services/api';
-import { toast } from 'react-toastify';
+import React, { useEffect, useState } from "react";
+import api from "../../../services/api";
+import { toast } from "react-toastify";
 
 // import { Container } from './styles';
 
@@ -9,17 +9,28 @@ export default function AllUsers() {
 
   useEffect(() => {
     loadAdms();
-  }, [])
+  }, []);
 
-  async function loadAdms(){
+  async function loadAdms() {
     try {
-      const response = await api.get('users');
+      const response = await api.get("users");
 
-      const {data} = response;
-      
-      setLocutores(data.locutores)
-    } catch(err) {
-      toast.error('Ocorreu um erro, atualize a página')
+      const { data } = response;
+
+      setLocutores(data.locutores);
+    } catch (err) {
+      toast.error("Ocorreu um erro, atualize a página ou logue novamente");
+    }
+  }
+
+  async function handlDelete(id) {
+    try {
+      await api.delete(`users/${id}`);
+
+      toast.success("Usuario deletado com sucesso");
+      await loadAdms();
+    } catch (err) {
+      toast.error("Algo deu errado!");
     }
   }
 
@@ -31,22 +42,34 @@ export default function AllUsers() {
           <table>
             <thead>
               <tr>
-                  <th>Nome</th>
-                  <th>Email</th>
-                  <th>Radio</th>
-                  <th>Locutor</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Radio</th>
+                <th>Locutor</th>
+                <th>Deletar</th>
               </tr>
             </thead>
 
             <tbody>
-              {locutores.length >= 1 ? locutores.map(el => (
-                <tr key={el.id}>
-                  <td>{el.name}</td>
-                  <td>{el.email}</td>
-                  <td>{el.radio.name}</td>
-                  <td>{el.locutor ? "Sim" : "Não"}</td>
-              </tr>
-              )): null}
+              {locutores.length >= 1
+                ? locutores.map(el => (
+                    <tr key={el.id}>
+                      <td>{el.name}</td>
+                      <td>{el.email}</td>
+                      <td>{el.radio.name}</td>
+                      <td>{el.locutor ? "Sim" : "Não"}</td>
+                      <td>
+                        <button
+                          title="deletar usuário"
+                          onClick={() => handlDelete(el.id)}
+                          className="btn-floating waves-effect waves-light red"
+                        >
+                          <i className="material-icons">delete</i>
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                : null}
             </tbody>
           </table>
         </div>
