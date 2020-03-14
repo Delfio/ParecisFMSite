@@ -163,6 +163,7 @@ export const DivLocutor = styled.div`
   border-radius: 50%;
 
   @media (min-width: 1680px) {
+    margin-top: 35px;
     height: 27vh !important;
   }
 
