@@ -49,7 +49,6 @@ export default function CadastrarProgramacao() {
     try {
       const { hora, minuto } = data;
 
-      // const horaFormatada = horarios.join(',');
       var horarios = new Array();
       var minutos = new Array();
 
