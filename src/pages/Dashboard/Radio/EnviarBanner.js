@@ -157,6 +157,7 @@ export default function EnviarBanner(props) {
           <div className="col s12 center">
             <h4>Cadastrar Icone da Rádio</h4>
             <p> Arquivos SVG </p>
+            <p> Tamanho máximo dos arquivos '1mb' </p>
           </div>
           <Dropzone
             // disabled={!logo}
