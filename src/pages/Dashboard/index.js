@@ -39,27 +39,19 @@ export default function TentandoDashboard() {
               <table>
                 <thead>
                   <tr>
-                    <th>Nome</th>
-                    <th>Telefone</th>
-                    <th>Artista</th>
-                    <th>Música</th>
-                    <th>Programa</th>
+                    <th>Dia</th>
+                    <th>Hora</th>
+                    <th>Pedido</th>
                   </tr>
                 </thead>
 
                 <tbody>
                   {request
                     ? request.map(el => (
-                        <tr key={el.id ? el.id : 112224}>
-                          <td>{el.nome}</td>
-                          <td>{el.telefone}</td>
-                          <td>{el.artista}</td>
-                          <td>{el.musica}</td>
-                          <td>
-                            {el.programacao
-                              ? el.programacao.programa.nome
-                              : null}
-                          </td>
+                        <tr key={el._id ? el._id : 112224}>
+                          <td>{el.dia}</td>
+                          <td>{el.hora}</td>
+                          <td>{el.content}</td>
                         </tr>
                       ))
                     : null}
