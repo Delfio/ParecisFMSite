@@ -49,6 +49,7 @@ export default function CadastrarPromocoes(props) {
   async function handlDelete(data) {
     try {
       await api.delete(`/promocao/${data}`);
+      loadPromotions();
     } catch (error) {
       toast.error('Algo deu errado!')
     }
