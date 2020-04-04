@@ -37,6 +37,7 @@ import AllUsers from '../pages/Dashboard/UserLocutores/TodosOsUsuarios';
 import AllADMS from '../pages/Dashboard/UserLocutores/TodosOsADM.js';
 import CadUser from '../pages/Dashboard/UserLocutores/CadastrarUsuario';
 import CadAdm from '../pages/Dashboard/UserLocutores/CadastrarAdministrador';
+import AttUser from '../pages/Dashboard/UserLocutores/AttUser';
 
 import CadRadios from '../pages/Dashboard/Radio/adm/CadastrarRadios';
 import AllRadios from '../pages/Dashboard/Radio/adm/ListarRadios';
@@ -94,6 +95,7 @@ export default function routes() {
       
       <Route path="/admin/AllRadio" exact isPrivate component={AllRadios}/>
       <Route path="/admin/CadRadio" exact isPrivate component={CadRadios}/>
+      <Route path="/admin/attUser/:id" exact isPrivate component={AttUser}/>
       
       <Route path="/attPrograma/:id" exact isPrivate component={AttPrograma}/>
       <Route path="/attProgramacao/:id" exact isPrivate component={AttProgramation}/>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import api from "../../../services/api";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 // import { Container } from './styles';
 
@@ -46,6 +47,7 @@ export default function AllUsers() {
                 <th>Email</th>
                 <th>Radio</th>
                 <th>Locutor</th>
+                <th>Atualizar</th>
                 <th>Deletar</th>
               </tr>
             </thead>
@@ -58,6 +60,7 @@ export default function AllUsers() {
                       <td>{el.email}</td>
                       <td>{el.radio.name}</td>
                       <td>{el.locutor ? "Sim" : "Não"}</td>
+                      <td> <Link to={`/admin/attUser/${el.id}`}> Atualizar </Link> </td>
                       <td>
                         <button
                           title="deletar usuário"

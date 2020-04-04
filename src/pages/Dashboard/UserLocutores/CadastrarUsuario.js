@@ -53,7 +53,7 @@ export default function CadastrarUsuarios() {
       data.map(el => radios.push({id: el.id, title: el.name}))
 
     } catch(err){
-
+      toast.error('Algo deu errado, favor atualize a página ou logue novamente!')
     }
   }
  
@@ -126,28 +126,27 @@ export default function CadastrarUsuarios() {
                 />
               </div>
               <div className="col s12">
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  paddingBottom: 15,
-                }}
-                className="col s3">
-                <label>
-                  <Input
-                    value="1"
-                    name="whats3"
-                    id="whats"
-                    type="checkbox"
-                    className="validate"
-                    checked={locutor === true}
-                    onChange={e => locutor=== true ? setLocutor(false): setLocutor(true)}
-                  />
-                  <span className="blue-text">Locutor</span>
-                </label>
-              </div>
-
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingBottom: 15,
+                  }}
+                  className="col s3">
+                  <label>
+                    <Input
+                      value="1"
+                      name="whats3"
+                      id="whats"
+                      type="checkbox"
+                      className="validate"
+                      checked={locutor === true}
+                      onChange={e => locutor=== true ? setLocutor(false): setLocutor(true)}
+                    />
+                    <span className="blue-text">Locutor</span>
+                  </label>
+                </div>
               </div>
               <div className="col s12">
             <button style={{zIndex: 0}} className="btn waves-effect waves-light" type="submit" name="action">Cadastrar
