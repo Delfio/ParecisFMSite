@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, memo} from 'react';
 
 import Banner from './BannerTop';
 import ProgramacaoAtual from './ProgramacaoAtual';
@@ -17,7 +17,7 @@ import api from '../../services/api';
 
 // import { Container } from './styles';
 
-export default function Main(props) {
+function Main(props) {
   const { id } = props.match.params;
   const [date, setDate] = useState(new Date())
   //banner
@@ -92,3 +92,5 @@ export default function Main(props) {
     </>
   );
 }
+
+export default memo(Main);

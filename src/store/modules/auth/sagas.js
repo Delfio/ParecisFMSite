@@ -17,10 +17,12 @@ export function* signIn({ payload }) {
     });
   
     const { token, user } = response.data;
+    // console.log(token, user);
   
     yield put(signInSuccess(token, user));
   
     yield history.push('/painel');
+
     toast.success('Bem vindo')
   } catch (err) {
     toast.error('Algo deu errado! Confira seus dados')
@@ -33,11 +35,21 @@ export function setToken({payload }) {
   const { token } = payload.auth;
 
   if (token) {
-    api.defaults.headers['Authorization'] = `Bearer ${token}`;
+    const tokenExists = api.defaults.headers['Authorization'];
+    if(!tokenExists){
+      api.defaults.headers['Authorization'] = `Bearer ${token}`;
+    }
   }
 }
 
+export function testToken({payload}){
+  const {token} = payload;
+  if(token){
+    api.defaults.headers['Authorization'] = `Bearer ${token}`;
+  }
+}
 export default all([
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('persist/REHYDRATE', setToken),
+  takeLatest('@auth/SIGN_IN_SUCCESS', testToken),
 ]);

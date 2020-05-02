@@ -17,6 +17,7 @@ export default function user(state = INITIAL_STATE, action){
           config: action.payload.user.adm ? secret : null,
           avatar: action.payload.user.avatar
         }
+        console.log(draft.profile);
         break;
       }
       case '@user/UPDATE_PROFILE_SUCCESS': {
@@ -32,6 +33,10 @@ export default function user(state = INITIAL_STATE, action){
         break;
       }
       case '@auth/SIGN_OUT': {
+        draft.profile = null;
+        break;
+      }
+      case '@user/TOKEN_EXPIRADO': {
         draft.profile = null;
         break;
       }

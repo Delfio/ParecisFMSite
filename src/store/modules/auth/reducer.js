@@ -36,7 +36,15 @@ export default function auth(state = INITIAL_STATE, action){
         draft.config = null;
         break;
       }
+      case '@user/TOKEN_EXPIRADO': {
+        draft.token= null;
+        draft.signed= false;
+        draft.loading= false;
+        draft.config= null;
+        break;
+      }
       default :
+        break;
     }
   });
 }
