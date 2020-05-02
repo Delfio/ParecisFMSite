@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, memo} from 'react';
 
 import banner from '../../assets/Topo.png'
 import bannerMobile from '../../assets/TopMobile.png'
 
 import { DivBanner } from './styles';
 
-export default function BannerTop(props) {
+function BannerTop(props) {
 
   const [banner1, setBanner1] = useState({})
   const [banner2, setBanner2] = useState({})
@@ -26,3 +26,5 @@ export default function BannerTop(props) {
     </DivBanner>
   );
 }
+
+export default memo(BannerTop);

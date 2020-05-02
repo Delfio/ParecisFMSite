@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import LogoParecis from "../../assets/logoParecis.svg";
 // logoParecis.png
 import {
@@ -8,7 +8,7 @@ import {
   DivInfosNomePrograma
 } from "./styles";
 
-export default function ProgramacaoAtual(props) {
+function ProgramacaoAtual(props) {
   const [programaAtual, setProgramaAtual] = useState({});
 
   useEffect(() => {
@@ -236,3 +236,5 @@ export default function ProgramacaoAtual(props) {
     </div>
   );
 }
+
+export default memo(ProgramacaoAtual);

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import * as Yup from 'yup';
 
 import logoSuaMusica from '../../assets/pecaSuaMusica.svg'
@@ -21,7 +21,7 @@ const schema = Yup.object().shape({
 
 })
 
-export default function PecaSuaMusica({id}) {
+function PecaSuaMusica({id}) {
 
   const[tipo, setTipo] = useState('feminino');
   const [pedido, setPedido] = useState(false);
@@ -130,3 +130,5 @@ export default function PecaSuaMusica({id}) {
     </div>
   );
 }
+
+export default memo(PecaSuaMusica);

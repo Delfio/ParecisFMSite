@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import Menu from '../../components/MenuDefault/MenuPageExtra'
 import api from '../../services/api';
 import M from 'materialize-css/dist/js/materialize.min.js';
@@ -12,7 +12,7 @@ import pt from 'date-fns/locale/pt';
 
 // import { Container } from './styles';
 
-export default function DetailsPromocao(props) {
+function DetailsPromocao(props) {
   const {id} = props.match.params;
 
   const [promocao, setPromocao] = useState({});
@@ -117,3 +117,5 @@ export default function DetailsPromocao(props) {
     </>
   );
 }
+
+export default memo(DetailsPromocao);

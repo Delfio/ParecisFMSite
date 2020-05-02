@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 
 import M from "materialize-css/dist/js/materialize.min.js";
 
@@ -6,7 +6,7 @@ import { Programacao, UlProgramacao } from "./styles";
 
 import api from "../../services/api";
 
-export default function ProgramacaoSemanal({ id: RadioID }) {
+function ProgramacaoSemanal({ id: RadioID }) {
   const [programacao, setProgramacao] = useState([]);
 
   useEffect(() => {
@@ -111,3 +111,5 @@ export default function ProgramacaoSemanal({ id: RadioID }) {
     </div>
   );
 }
+
+export default memo(ProgramacaoSemanal);

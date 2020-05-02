@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, memo} from 'react';
 
 import api from '../../services/api';
 
@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 // import { Container } from './styles';
 
-export default function Promocoes(props) {
+function Promocoes(props) {
 
   const {id} = props;
   const [conteudo, setConteudo] = useState([]);
@@ -87,3 +87,5 @@ export default function Promocoes(props) {
     </>
   );
 }
+
+export default memo(Promocoes);

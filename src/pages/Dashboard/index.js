@@ -1,23 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect, memo } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { tokenExpirado } from '../../store/modules/user/actions';
+import {toast} from 'react-toastify';
 
 import api from "../../services/api";
 
-export default function TentandoDashboard() {
+function TentandoDashboard() {
   const [date, setdate] = useState(new Date());
   const [request, setRequest] = useState([{}]);
-  const { name, radio_id } = useSelector(state => state.user.profile);
+  const { name, radio_id,  } = useSelector(state => state.user.profile);
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
     loadNotifications();
   }, [loadNotifications]);
 
   async function loadNotifications() {
-    const response = await api.get(`notifications/${radio_id}?data=${date}`);
-    const { data } = response;
-    setRequest(data);
+    try {
+      const response = await api.get(`notifications/${radio_id}?data=${date}`);
+      const { data } = response;
+      setRequest(data);
+    } catch (err) {
+      toast.error("Token expirado, favor faça loguin novamente!");
+      return dispatch(tokenExpirado())
+    }
   }
-
   return (
     <main>
       <div className="container">
@@ -64,3 +72,5 @@ export default function TentandoDashboard() {
     </main>
   );
 }
+
+export default memo(TentandoDashboard);
