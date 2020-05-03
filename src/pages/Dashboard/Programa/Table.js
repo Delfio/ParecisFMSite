@@ -1,24 +1,29 @@
 import React, { useEffect, useState } from "react";
-
+import { useDispatch } from 'react-redux';
 import { toast } from "react-toastify";
 import api from "../../../services/api";
 import { Link } from "react-router-dom";
 
+import { tokenExpirado } from '../../../store/modules/user/actions';
 // import { Container } from './styles';
 
 export default function Table({update}) {
   const [programations, setProgramations] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     loadProgramacaoReferent();
   }, []);
 
-  useEffect(() => {
-    loadProgramacaoReferent();
-  }, [update])
+  // useEffect(() => {
+  //   loadProgramacaoReferent();
+  // }, [update])
 
   async function loadProgramacaoReferent() {
     const response = await api.get("programacaos");
+    if(response.status === 406){
+      dispatch(tokenExpirado());
+    }
     setProgramations(response.data);
   }
 

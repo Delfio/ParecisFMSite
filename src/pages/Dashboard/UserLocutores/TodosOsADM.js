@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import api from '../../../services/api';
 import { toast } from 'react-toastify';
 
+import { tokenExpirado } from '../../../store/modules/user/actions';
 // import { Container } from './styles';
 
 export default function AllLocutores() {
   const [adms, setAdms] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     loadAdms();
@@ -14,7 +17,9 @@ export default function AllLocutores() {
   async function loadAdms(){
     try {
       const response = await api.get('users');
-
+      if(response.status === 406){
+        dispatch(tokenExpirado());
+      }
       const {data} = response;
       
       setAdms(data.adms)

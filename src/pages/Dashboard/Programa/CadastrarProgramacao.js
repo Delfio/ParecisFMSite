@@ -40,7 +40,7 @@ export default function CadastrarProgramacao() {
   async function loadProgramas() {
     const response = await api.get("/programa");
     const { data } = response;
-
+    console.log(response.status)
     data.map(el => programa.push({ id: el.id, title: el.nome }));
   }
 
