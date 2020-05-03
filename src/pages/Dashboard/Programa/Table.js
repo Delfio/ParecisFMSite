@@ -6,12 +6,16 @@ import { Link } from "react-router-dom";
 
 // import { Container } from './styles';
 
-export default function Table() {
+export default function Table({update}) {
   const [programations, setProgramations] = useState([]);
 
   useEffect(() => {
     loadProgramacaoReferent();
   }, []);
+
+  useEffect(() => {
+    loadProgramacaoReferent();
+  }, [update])
 
   async function loadProgramacaoReferent() {
     const response = await api.get("programacaos");
